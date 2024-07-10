@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MV64e.MTB", "MV64e.MTB\MV64e.MTB.csproj", "{AA08ED31-46FE-4DE0-97EC-F09357CDF44A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MV64e.MTB.Test", "MV64e.MTB.Test\MV64e.MTB.Test.csproj", "{C10B9692-A326-4FB8-8D81-1B3FB9E915F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA08ED31-46FE-4DE0-97EC-F09357CDF44A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA08ED31-46FE-4DE0-97EC-F09357CDF44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA08ED31-46FE-4DE0-97EC-F09357CDF44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA08ED31-46FE-4DE0-97EC-F09357CDF44A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C10B9692-A326-4FB8-8D81-1B3FB9E915F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C10B9692-A326-4FB8-8D81-1B3FB9E915F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C10B9692-A326-4FB8-8D81-1B3FB9E915F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C10B9692-A326-4FB8-8D81-1B3FB9E915F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
