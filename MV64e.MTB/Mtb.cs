@@ -21,9 +21,6 @@ namespace MV64e.MTB
         [JsonProperty("claims", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<Claim> Claims { get; set; }
 
-        [JsonProperty("consent", Required = Required.Always)]
-        public Consent Consent { get; set; }
-
         [JsonProperty("diagnoses", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<MtbDiagnosis> Diagnoses { get; set; }
 
@@ -173,18 +170,6 @@ namespace MV64e.MTB
 
         [JsonProperty("therapy", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public string Therapy { get; set; }
-    }
-
-    public partial class Consent
-    {
-        [JsonProperty("id", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public string Id { get; set; }
-
-        [JsonProperty("patient", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public Patient Patient { get; set; }
-
-        [JsonProperty("status", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public ConsentStatus? Status { get; set; }
     }
 
     public partial class MtbDiagnosis
@@ -1086,8 +1071,6 @@ namespace MV64e.MTB
 
     public enum ClaimResponseStatus { Accepted, Rejected, Unknown };
 
-    public enum ConsentStatus { Active, Rejected };
-
     public enum MtbDiagnosisTumorSpread { Local, Metastasized, TumorFree, Unknown };
 
     public enum PurpleCode { Code0, Code1, Code2, Code3, Code4 };
@@ -1148,7 +1131,6 @@ namespace MV64e.MTB
                 ClaimResponseClaimTypeConverter.Singleton,
                 ClaimResponseStatusReasonConverter.Singleton,
                 ClaimResponseStatusConverter.Singleton,
-                ConsentStatusConverter.Singleton,
                 MtbDiagnosisTumorSpreadConverter.Singleton,
                 PurpleCodeConverter.Singleton,
                 SpecimenTypeConverter.Singleton,
@@ -1356,47 +1338,6 @@ namespace MV64e.MTB
         }
 
         public static readonly ClaimResponseStatusConverter Singleton = new ClaimResponseStatusConverter();
-    }
-
-    internal class ConsentStatusConverter : JsonConverter
-    {
-        public override bool CanConvert(Type t) => t == typeof(ConsentStatus) || t == typeof(ConsentStatus?);
-
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
-        {
-            if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
-            {
-                case "active":
-                    return ConsentStatus.Active;
-                case "rejected":
-                    return ConsentStatus.Rejected;
-            }
-            throw new Exception("Cannot unmarshal type ConsentStatus");
-        }
-
-        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
-        {
-            if (untypedValue == null)
-            {
-                serializer.Serialize(writer, null);
-                return;
-            }
-            var value = (ConsentStatus)untypedValue;
-            switch (value)
-            {
-                case ConsentStatus.Active:
-                    serializer.Serialize(writer, "active");
-                    return;
-                case ConsentStatus.Rejected:
-                    serializer.Serialize(writer, "rejected");
-                    return;
-            }
-            throw new Exception("Cannot marshal type ConsentStatus");
-        }
-
-        public static readonly ConsentStatusConverter Singleton = new ConsentStatusConverter();
     }
 
     internal class MtbDiagnosisTumorSpreadConverter : JsonConverter
