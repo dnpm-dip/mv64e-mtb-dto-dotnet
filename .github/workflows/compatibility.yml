@@ -18,7 +18,7 @@ jobs:
     
     # See: https://github.com/KohlbacherLab/dnpm-dip-api-gateway/blob/main/app/controllers/README.md#synthetic-json-data
     - name: Download synthetic mtb patient record
-      run: curl -f https://dnpm.bwhealthcloud.de/api/mtb/fake/data/patient-record -o ./MV64e.MTB.Test/TestData/mv64e-mtb-fake-patient.json
+      run: curl -f -L https://dnpm-dip.net/api/mtb/fake/data/patient-record -o ./tests/mv64e-mtb-fake-patient.json
       
     - name: Restore dependencies
       run: dotnet restore
