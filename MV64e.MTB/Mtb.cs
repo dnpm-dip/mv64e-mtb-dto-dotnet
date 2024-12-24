@@ -42,6 +42,9 @@ namespace MV64e.MTB
         [JsonProperty("histologyReports", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<HistologyReport> HistologyReports { get; set; }
 
+        [JsonProperty("ihcReports", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public List<IhcReport> IhcReports { get; set; }
+
         [JsonProperty("molecularTherapies", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<MolecularTherapy> MolecularTherapies { get; set; }
 
@@ -65,6 +68,9 @@ namespace MV64e.MTB
 
         [JsonProperty("studyInclusionRequests", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<StudyEnrollmentRecommendation> StudyInclusionRequests { get; set; }
+
+        [JsonProperty("therapies", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public List<Therapy> Therapies { get; set; }
     }
 
     public partial class MtbCarePlan
@@ -577,7 +583,7 @@ namespace MV64e.MTB
     public partial class MtbMedicationTherapy
     {
         [JsonProperty("basedOn", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public string BasedOn { get; set; }
+        public Reference BasedOn { get; set; }
 
         [JsonProperty("diagnosis", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public string Diagnosis { get; set; }
@@ -713,6 +719,135 @@ namespace MV64e.MTB
 
         [JsonProperty("type", Required = Required.Always)]
         public SpecimenType Type { get; set; }
+    }
+
+    public partial class IhcReport
+    {
+        [JsonProperty("blockId", Required = Required.Always)]
+        public ExternalId BlockId { get; set; }
+
+        [JsonProperty("date", Required = Required.Always)]
+        public DateTimeOffset Date { get; set; }
+
+        [JsonProperty("id", Required = Required.Always)]
+        public string Id { get; set; }
+
+        [JsonProperty("journalId", Required = Required.Always)]
+        public ExternalId JournalId { get; set; }
+
+        [JsonProperty("msiMmrResults", Required = Required.Always)]
+        public List<MsiMmrResult> MsiMmrResults { get; set; }
+
+        [JsonProperty("patient", Required = Required.Always)]
+        public Reference Patient { get; set; }
+
+        [JsonProperty("proteinExpressionResults", Required = Required.Always)]
+        public List<ProteinExpressionResult> ProteinExpressionResults { get; set; }
+
+        [JsonProperty("specimen", Required = Required.Always)]
+        public Reference Specimen { get; set; }
+    }
+
+    public partial class ExternalId
+    {
+        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string System { get; set; }
+
+        [JsonProperty("value", Required = Required.Always)]
+        public string Value { get; set; }
+    }
+
+    public partial class MsiMmrResult
+    {
+        [JsonProperty("icScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public CodingProteinExpressionIcScore IcScore { get; set; }
+
+        [JsonProperty("id", Required = Required.Always)]
+        public string Id { get; set; }
+
+        [JsonProperty("patient", Required = Required.Always)]
+        public Reference Patient { get; set; }
+
+        [JsonProperty("protein", Required = Required.Always)]
+        public Coding Protein { get; set; }
+
+        [JsonProperty("tcScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public CodingProteinExpressionTcScore TcScore { get; set; }
+
+        [JsonProperty("tpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public long? TpsScore { get; set; }
+
+        [JsonProperty("value", Required = Required.Always)]
+        public CodingProteinExpressionResult Value { get; set; }
+    }
+
+    public partial class CodingProteinExpressionIcScore
+    {
+        [JsonProperty("code", Required = Required.Always)]
+        public IcScoreCode Code { get; set; }
+
+        [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Display { get; set; }
+
+        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string System { get; set; }
+
+        [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    }
+
+    public partial class CodingProteinExpressionTcScore
+    {
+        [JsonProperty("code", Required = Required.Always)]
+        public TcScoreCode Code { get; set; }
+
+        [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Display { get; set; }
+
+        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string System { get; set; }
+
+        [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    }
+
+    public partial class CodingProteinExpressionResult
+    {
+        [JsonProperty("code", Required = Required.Always)]
+        public ProteinExpressionResultCode Code { get; set; }
+
+        [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Display { get; set; }
+
+        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string System { get; set; }
+
+        [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    }
+
+    public partial class ProteinExpressionResult
+    {
+        [JsonProperty("icScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public CodingProteinExpressionIcScore IcScore { get; set; }
+
+        [JsonProperty("id", Required = Required.Always)]
+        public string Id { get; set; }
+
+        [JsonProperty("patient", Required = Required.Always)]
+        public Reference Patient { get; set; }
+
+        [JsonProperty("protein", Required = Required.Always)]
+        public Coding Protein { get; set; }
+
+        [JsonProperty("tcScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public CodingProteinExpressionTcScore TcScore { get; set; }
+
+        [JsonProperty("tpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public long? TpsScore { get; set; }
+
+        [JsonProperty("value", Required = Required.Always)]
+        public CodingProteinExpressionResult Value { get; set; }
     }
 
     public partial class MolecularTherapy
@@ -1150,15 +1285,6 @@ namespace MV64e.MTB
         public ExternalId TranscriptId { get; set; }
     }
 
-    public partial class ExternalId
-    {
-        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public string System { get; set; }
-
-        [JsonProperty("value", Required = Required.Always)]
-        public string Value { get; set; }
-    }
-
     public partial class Position
     {
         [JsonProperty("end", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -1303,7 +1429,7 @@ namespace MV64e.MTB
     public partial class CodingEcog
     {
         [JsonProperty("code", Required = Required.Always)]
-        public PurpleCode Code { get; set; }
+        public EcogCode Code { get; set; }
 
         [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public string Display { get; set; }
@@ -1345,7 +1471,7 @@ namespace MV64e.MTB
     public partial class CodingRecist
     {
         [JsonProperty("code", Required = Required.Always)]
-        public FluffyCode Code { get; set; }
+        public RecistCode Code { get; set; }
 
         [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public string Display { get; set; }
@@ -1432,6 +1558,12 @@ namespace MV64e.MTB
         public string System { get; set; }
     }
 
+    public partial class Therapy
+    {
+        [JsonProperty("history", Required = Required.Always)]
+        public List<MtbMedicationTherapy> History { get; set; }
+    }
+
     public enum PatientType { Patient };
 
     public enum AddendumCode { Is, Iv, R, Z };
@@ -1460,6 +1592,12 @@ namespace MV64e.MTB
 
     public enum SpecimenType { TumorSpecimen };
 
+    public enum IcScoreCode { Code0, Code1, Code2, Code3 };
+
+    public enum TcScoreCode { Code0, Code1, Code2, Code3, Code4, Code5, Code6 };
+
+    public enum ProteinExpressionResultCode { Exp, NotExp, Code1Plus, Code2Plus, Code3Plus, Unknown };
+
     public enum ChromosomeCode { Chr1, Chr10, Chr11, Chr12, Chr13, Chr14, Chr15, Chr16, Chr17, Chr18, Chr19, Chr2, Chr20, Chr21, Chr22, Chr3, Chr4, Chr5, Chr6, Chr7, Chr8, Chr9, ChrX, ChrY };
 
     public enum ChromosomeSystem { Chromosome };
@@ -1478,11 +1616,11 @@ namespace MV64e.MTB
 
     public enum VitalStatusCode { Alive, Deceased };
 
-    public enum PurpleCode { Code0, Code1, Code2, Code3, Code4 };
+    public enum EcogCode { Code0, Code1, Code2, Code3, Code4 };
 
     public enum ResponseTherapyType { MtbMedicationTherapy };
 
-    public enum FluffyCode { Cr, Mr, Na, Nya, Pd, Pr, Sd };
+    public enum RecistCode { Cr, Mr, Na, Nya, Pd, Pr, Sd };
 
     public enum TumorSpecimenCollectionLocalization { Metastasis, PrimaryTumor, Unknown };
 
@@ -1522,6 +1660,9 @@ namespace MV64e.MTB
                 StatusReasonCodeConverter.Singleton,
                 TumorCellContentMethodConverter.Singleton,
                 SpecimenTypeConverter.Singleton,
+                IcScoreCodeConverter.Singleton,
+                TcScoreCodeConverter.Singleton,
+                ProteinExpressionResultCodeConverter.Singleton,
                 ChromosomeCodeConverter.Singleton,
                 ChromosomeSystemConverter.Singleton,
                 GeneSystemConverter.Singleton,
@@ -1531,9 +1672,9 @@ namespace MV64e.MTB
                 GenderConverter.Singleton,
                 TypeEnumConverter.Singleton,
                 VitalStatusCodeConverter.Singleton,
-                PurpleCodeConverter.Singleton,
+                EcogCodeConverter.Singleton,
                 ResponseTherapyTypeConverter.Singleton,
-                FluffyCodeConverter.Singleton,
+                RecistCodeConverter.Singleton,
                 TumorSpecimenCollectionLocalizationConverter.Singleton,
                 TumorSpecimenCollectionMethodConverter.Singleton,
                 TumorSpecimenTypeConverter.Singleton,
@@ -2293,6 +2434,184 @@ namespace MV64e.MTB
         public static readonly SpecimenTypeConverter Singleton = new SpecimenTypeConverter();
     }
 
+    internal class IcScoreCodeConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(IcScoreCode) || t == typeof(IcScoreCode?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "0":
+                    return IcScoreCode.Code0;
+                case "1":
+                    return IcScoreCode.Code1;
+                case "2":
+                    return IcScoreCode.Code2;
+                case "3":
+                    return IcScoreCode.Code3;
+            }
+            throw new Exception("Cannot unmarshal type IcScoreCode");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (IcScoreCode)untypedValue;
+            switch (value)
+            {
+                case IcScoreCode.Code0:
+                    serializer.Serialize(writer, "0");
+                    return;
+                case IcScoreCode.Code1:
+                    serializer.Serialize(writer, "1");
+                    return;
+                case IcScoreCode.Code2:
+                    serializer.Serialize(writer, "2");
+                    return;
+                case IcScoreCode.Code3:
+                    serializer.Serialize(writer, "3");
+                    return;
+            }
+            throw new Exception("Cannot marshal type IcScoreCode");
+        }
+
+        public static readonly IcScoreCodeConverter Singleton = new IcScoreCodeConverter();
+    }
+
+    internal class TcScoreCodeConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(TcScoreCode) || t == typeof(TcScoreCode?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "0":
+                    return TcScoreCode.Code0;
+                case "1":
+                    return TcScoreCode.Code1;
+                case "2":
+                    return TcScoreCode.Code2;
+                case "3":
+                    return TcScoreCode.Code3;
+                case "4":
+                    return TcScoreCode.Code4;
+                case "5":
+                    return TcScoreCode.Code5;
+                case "6":
+                    return TcScoreCode.Code6;
+            }
+            throw new Exception("Cannot unmarshal type TcScoreCode");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (TcScoreCode)untypedValue;
+            switch (value)
+            {
+                case TcScoreCode.Code0:
+                    serializer.Serialize(writer, "0");
+                    return;
+                case TcScoreCode.Code1:
+                    serializer.Serialize(writer, "1");
+                    return;
+                case TcScoreCode.Code2:
+                    serializer.Serialize(writer, "2");
+                    return;
+                case TcScoreCode.Code3:
+                    serializer.Serialize(writer, "3");
+                    return;
+                case TcScoreCode.Code4:
+                    serializer.Serialize(writer, "4");
+                    return;
+                case TcScoreCode.Code5:
+                    serializer.Serialize(writer, "5");
+                    return;
+                case TcScoreCode.Code6:
+                    serializer.Serialize(writer, "6");
+                    return;
+            }
+            throw new Exception("Cannot marshal type TcScoreCode");
+        }
+
+        public static readonly TcScoreCodeConverter Singleton = new TcScoreCodeConverter();
+    }
+
+    internal class ProteinExpressionResultCodeConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(ProteinExpressionResultCode) || t == typeof(ProteinExpressionResultCode?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "1+":
+                    return ProteinExpressionResultCode.Code1Plus;
+                case "2+":
+                    return ProteinExpressionResultCode.Code2Plus;
+                case "3+":
+                    return ProteinExpressionResultCode.Code3Plus;
+                case "exp":
+                    return ProteinExpressionResultCode.Exp;
+                case "not-exp":
+                    return ProteinExpressionResultCode.NotExp;
+                case "unknown":
+                    return ProteinExpressionResultCode.Unknown;
+            }
+            throw new Exception("Cannot unmarshal type ProteinExpressionResultCode");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (ProteinExpressionResultCode)untypedValue;
+            switch (value)
+            {
+                case ProteinExpressionResultCode.Code1Plus:
+                    serializer.Serialize(writer, "1+");
+                    return;
+                case ProteinExpressionResultCode.Code2Plus:
+                    serializer.Serialize(writer, "2+");
+                    return;
+                case ProteinExpressionResultCode.Code3Plus:
+                    serializer.Serialize(writer, "3+");
+                    return;
+                case ProteinExpressionResultCode.Exp:
+                    serializer.Serialize(writer, "exp");
+                    return;
+                case ProteinExpressionResultCode.NotExp:
+                    serializer.Serialize(writer, "not-exp");
+                    return;
+                case ProteinExpressionResultCode.Unknown:
+                    serializer.Serialize(writer, "unknown");
+                    return;
+            }
+            throw new Exception("Cannot marshal type ProteinExpressionResultCode");
+        }
+
+        public static readonly ProteinExpressionResultCodeConverter Singleton = new ProteinExpressionResultCodeConverter();
+    }
+
     internal class ChromosomeCodeConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(ChromosomeCode) || t == typeof(ChromosomeCode?);
@@ -2759,9 +3078,9 @@ namespace MV64e.MTB
         public static readonly VitalStatusCodeConverter Singleton = new VitalStatusCodeConverter();
     }
 
-    internal class PurpleCodeConverter : JsonConverter
+    internal class EcogCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(PurpleCode) || t == typeof(PurpleCode?);
+        public override bool CanConvert(Type t) => t == typeof(EcogCode) || t == typeof(EcogCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2770,17 +3089,17 @@ namespace MV64e.MTB
             switch (value)
             {
                 case "0":
-                    return PurpleCode.Code0;
+                    return EcogCode.Code0;
                 case "1":
-                    return PurpleCode.Code1;
+                    return EcogCode.Code1;
                 case "2":
-                    return PurpleCode.Code2;
+                    return EcogCode.Code2;
                 case "3":
-                    return PurpleCode.Code3;
+                    return EcogCode.Code3;
                 case "4":
-                    return PurpleCode.Code3;
+                    return EcogCode.Code4;
             }
-            throw new Exception("Cannot unmarshal type PurpleCode");
+            throw new Exception("Cannot unmarshal type EcogCode");
         }
 
         public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
@@ -2790,29 +3109,29 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
-            var value = (PurpleCode)untypedValue;
+            var value = (EcogCode)untypedValue;
             switch (value)
             {
-                case PurpleCode.Code0:
+                case EcogCode.Code0:
                     serializer.Serialize(writer, "0");
                     return;
-                case PurpleCode.Code1:
+                case EcogCode.Code1:
                     serializer.Serialize(writer, "1");
                     return;
-                case PurpleCode.Code2:
+                case EcogCode.Code2:
                     serializer.Serialize(writer, "2");
                     return;
-                case PurpleCode.Code3:
+                case EcogCode.Code3:
                     serializer.Serialize(writer, "3");
                     return;
-                case PurpleCode.Code4:
+                case EcogCode.Code4:
                     serializer.Serialize(writer, "4");
                     return;
             }
-            throw new Exception("Cannot marshal type PurpleCode");
+            throw new Exception("Cannot marshal type EcogCode");
         }
 
-        public static readonly PurpleCodeConverter Singleton = new PurpleCodeConverter();
+        public static readonly EcogCodeConverter Singleton = new EcogCodeConverter();
     }
 
     internal class ResponseTherapyTypeConverter : JsonConverter
@@ -2849,9 +3168,9 @@ namespace MV64e.MTB
         public static readonly ResponseTherapyTypeConverter Singleton = new ResponseTherapyTypeConverter();
     }
 
-    internal class FluffyCodeConverter : JsonConverter
+    internal class RecistCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(FluffyCode) || t == typeof(FluffyCode?);
+        public override bool CanConvert(Type t) => t == typeof(RecistCode) || t == typeof(RecistCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2860,21 +3179,21 @@ namespace MV64e.MTB
             switch (value)
             {
                 case "CR":
-                    return FluffyCode.Cr;
+                    return RecistCode.Cr;
                 case "MR":
-                    return FluffyCode.Mr;
+                    return RecistCode.Mr;
                 case "NA":
-                    return FluffyCode.Na;
+                    return RecistCode.Na;
                 case "NYA":
-                    return FluffyCode.Nya;
+                    return RecistCode.Nya;
                 case "PD":
-                    return FluffyCode.Pd;
+                    return RecistCode.Pd;
                 case "PR":
-                    return FluffyCode.Pr;
+                    return RecistCode.Pr;
                 case "SD":
-                    return FluffyCode.Sd;
+                    return RecistCode.Sd;
             }
-            throw new Exception("Cannot unmarshal type FluffyCode");
+            throw new Exception("Cannot unmarshal type RecistCode");
         }
 
         public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
@@ -2884,35 +3203,35 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
-            var value = (FluffyCode)untypedValue;
+            var value = (RecistCode)untypedValue;
             switch (value)
             {
-                case FluffyCode.Cr:
+                case RecistCode.Cr:
                     serializer.Serialize(writer, "CR");
                     return;
-                case FluffyCode.Mr:
+                case RecistCode.Mr:
                     serializer.Serialize(writer, "MR");
                     return;
-                case FluffyCode.Na:
+                case RecistCode.Na:
                     serializer.Serialize(writer, "NA");
                     return;
-                case FluffyCode.Nya:
+                case RecistCode.Nya:
                     serializer.Serialize(writer, "NYA");
                     return;
-                case FluffyCode.Pd:
+                case RecistCode.Pd:
                     serializer.Serialize(writer, "PD");
                     return;
-                case FluffyCode.Pr:
+                case RecistCode.Pr:
                     serializer.Serialize(writer, "PR");
                     return;
-                case FluffyCode.Sd:
+                case RecistCode.Sd:
                     serializer.Serialize(writer, "SD");
                     return;
             }
-            throw new Exception("Cannot marshal type FluffyCode");
+            throw new Exception("Cannot marshal type RecistCode");
         }
 
-        public static readonly FluffyCodeConverter Singleton = new FluffyCodeConverter();
+        public static readonly RecistCodeConverter Singleton = new RecistCodeConverter();
     }
 
     internal class TumorSpecimenCollectionLocalizationConverter : JsonConverter
