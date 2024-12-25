@@ -1644,6 +1644,7 @@ namespace MV64e.MTB
         {
             MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
             DateParseHandling = DateParseHandling.None,
+            MissingMemberHandling = MissingMemberHandling.Error,
             Converters =
             {
                 PatientTypeConverter.Singleton,
