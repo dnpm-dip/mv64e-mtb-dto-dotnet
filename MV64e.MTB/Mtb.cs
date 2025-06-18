@@ -492,11 +492,11 @@ namespace MV64e.MTB
         [JsonProperty("patient", Required = Required.Always)]
         public Reference Patient { get; set; }
 
-        [JsonProperty("status", Required = Required.Always)]
+        [JsonProperty("status", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public ClaimResponseStatusCoding Status { get; set; }
 
         [JsonProperty("statusReason", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public ClaimResponseStatusReasonCoding StatusReason { get; set; }
+        public List<ClaimResponseStatusReasonCoding> StatusReason { get; set; }
     }
 
     public partial class ClaimResponseStatusCoding
@@ -1038,17 +1038,11 @@ namespace MV64e.MTB
 
     public partial class IhcReport
     {
-        [JsonProperty("blockIds", Required = Required.Always)]
-        public List<string> BlockIds { get; set; }
-
         [JsonProperty("id", Required = Required.Always)]
         public string Id { get; set; }
 
         [JsonProperty("issuedOn", Required = Required.Always)]
         public DateTimeOffset IssuedOn { get; set; }
-
-        [JsonProperty("journalId", Required = Required.Always)]
-        public string JournalId { get; set; }
 
         [JsonProperty("patient", Required = Required.Always)]
         public Reference Patient { get; set; }
