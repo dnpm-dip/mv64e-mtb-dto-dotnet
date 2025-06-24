@@ -27,6 +27,9 @@ namespace MV64e.MTB
         [JsonProperty("episodesOfCare", Required = Required.Always)]
         public List<MtbEpisodeOfCare> EpisodesOfCare { get; set; }
 
+        [JsonProperty("familyMemberHistories", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public List<FamilyMemberHistory> FamilyMemberHistories { get; set; }
+        
         [JsonProperty("followUps", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<FollowUp> FollowUps { get; set; }
 
@@ -736,6 +739,33 @@ namespace MV64e.MTB
         public DateTimeOffset Start { get; set; }
     }
 
+    public partial class FamilyMemberHistory
+    {
+        [JsonProperty("id", Required = Required.Always)]
+        public string Id { get; set; }
+
+        [JsonProperty("patient", Required = Required.Always)]
+        public Reference Patient { get; set; }
+
+        [JsonProperty("relationship", Required = Required.Always)]
+        public FamilyMemberHistoryRelationshipTypeCoding Relationship { get; set; }
+    }
+
+    public partial class FamilyMemberHistoryRelationshipTypeCoding
+    {
+        [JsonProperty("code", Required = Required.Always)]
+        public FamilyMemberHistoryRelationshipTypeCodingCode Code { get; set; }
+
+        [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Display { get; set; }
+
+        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string System { get; set; }
+
+        [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    }
+    
     public partial class FollowUp
     {
         [JsonProperty("date", Required = Required.Always)]
@@ -2074,6 +2104,8 @@ namespace MV64e.MTB
 
     public enum ValueCode { Main, Metachronous, Secondary };
 
+    public enum FamilyMemberHistoryRelationshipTypeCodingCode { Ext, Fammemb };
+    
     public enum FollowUpPatientStatusCodingCode { LostToFu };
 
     public enum OncoProcedureCodingCode { NuclearMedicine, RadioTherapy, Surgery };
@@ -2181,6 +2213,7 @@ namespace MV64e.MTB
                 MtbDiagnosisGuidelineTreatmentStatusCodingCodeConverter.Singleton,
                 TumorStagingMethodCodingCodeConverter.Singleton,
                 ValueCodeConverter.Singleton,
+                FamilyMemberHistoryRelationshipTypeCodingCodeConverter.Singleton,
                 FollowUpPatientStatusCodingCodeConverter.Singleton,
                 OncoProcedureCodingCodeConverter.Singleton,
                 MtbTherapyIntentCodingCodeConverter.Singleton,
@@ -3167,6 +3200,47 @@ namespace MV64e.MTB
         public static readonly ValueCodeConverter Singleton = new ValueCodeConverter();
     }
 
+    internal class FamilyMemberHistoryRelationshipTypeCodingCodeConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(FamilyMemberHistoryRelationshipTypeCodingCode) || t == typeof(FamilyMemberHistoryRelationshipTypeCodingCode?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "EXT":
+                    return FamilyMemberHistoryRelationshipTypeCodingCode.Ext;
+                case "FAMMEMB":
+                    return FamilyMemberHistoryRelationshipTypeCodingCode.Fammemb;
+            }
+            throw new Exception("Cannot unmarshal type FamilyMemberHistoryRelationshipTypeCodingCode");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (FamilyMemberHistoryRelationshipTypeCodingCode)untypedValue;
+            switch (value)
+            {
+                case FamilyMemberHistoryRelationshipTypeCodingCode.Ext:
+                    serializer.Serialize(writer, "EXT");
+                    return;
+                case FamilyMemberHistoryRelationshipTypeCodingCode.Fammemb:
+                    serializer.Serialize(writer, "FAMMEMB");
+                    return;
+            }
+            throw new Exception("Cannot marshal type FamilyMemberHistoryRelationshipTypeCodingCode");
+        }
+
+        public static readonly FamilyMemberHistoryRelationshipTypeCodingCodeConverter Singleton = new FamilyMemberHistoryRelationshipTypeCodingCodeConverter();
+    }
+    
     internal class FollowUpPatientStatusCodingCodeConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(FollowUpPatientStatusCodingCode) || t == typeof(FollowUpPatientStatusCodingCode?);
