@@ -175,7 +175,7 @@ namespace MV64e.MTB
     public partial class MtbMedicationRecommendation
     {
         [JsonProperty("category", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public MtbMedicationRecommendationCategoryCoding Category { get; set; }
+        public List<MtbMedicationRecommendationCategoryCoding> Category { get; set; }
 
         [JsonProperty("id", Required = Required.Always)]
         public string Id { get; set; }
@@ -2136,7 +2136,7 @@ namespace MV64e.MTB
 
     public enum MvhSubmissionType { Addition, Correction, Followup, Initial };
 
-    public enum Chromosome { Chr1, Chr10, Chr11, Chr12, Chr13, Chr14, Chr15, Chr16, Chr17, Chr18, Chr19, Chr2, Chr20, Chr21, Chr22, Chr3, Chr4, Chr5, Chr6, Chr7, Chr8, Chr9, ChrX, ChrY };
+    public enum Chromosome { Chr1, Chr10, Chr11, Chr12, Chr13, Chr14, Chr15, Chr16, Chr17, Chr18, Chr19, Chr2, Chr20, Chr21, Chr22, Chr3, Chr4, Chr5, Chr6, Chr7, Chr8, Chr9, ChrX, ChrY, ChrMt };
 
     public enum ExternalIdSystem { CancerSangerAcUkCosmic, EnsemblOrg, NcbiNlmNihGovEntrez, NcbiNlmNihGovSnp };
 
@@ -4107,6 +4107,8 @@ namespace MV64e.MTB
                     return Chromosome.ChrX;
                 case "chrY":
                     return Chromosome.ChrY;
+                case "chrMT":
+                    return Chromosome.ChrMt;
             }
             throw new Exception("Cannot unmarshal type Chromosome");
         }
@@ -4192,6 +4194,9 @@ namespace MV64e.MTB
                     return;
                 case Chromosome.ChrY:
                     serializer.Serialize(writer, "chrY");
+                    return;
+                case Chromosome.ChrMt:
+                    serializer.Serialize(writer, "chrMT");
                     return;
             }
             throw new Exception("Cannot marshal type Chromosome");
