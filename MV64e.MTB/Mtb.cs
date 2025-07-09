@@ -48,6 +48,9 @@ namespace MV64e.MTB
         [JsonProperty("metadata", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public MvhMetadata Metadata { get; set; }
 
+        [JsonProperty("msiFindings", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public List<Msi> MsiFindings { get; set; }
+        
         [JsonProperty("ngsReports", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<SomaticNgsReport> NgsReports { get; set; }
 
@@ -1213,6 +1216,57 @@ namespace MV64e.MTB
         public string Version { get; set; }
     }
 
+        public partial class Msi
+    {
+        [JsonProperty("id", Required = Required.Always)]
+        public string Id { get; set; }
+
+        [JsonProperty("interpretation", Required = Required.Always)]
+        public MsiInterpretationCoding Interpretation { get; set; }
+
+        [JsonProperty("method", Required = Required.Always)]
+        public MsiMethodCoding Method { get; set; }
+
+        [JsonProperty("patient", Required = Required.Always)]
+        public Reference Patient { get; set; }
+
+        [JsonProperty("specimen", Required = Required.Always)]
+        public Reference Specimen { get; set; }
+
+        [JsonProperty("value", Required = Required.Always)]
+        public double Value { get; set; }
+    }
+
+    public partial class MsiInterpretationCoding
+    {
+        [JsonProperty("code", Required = Required.Always)]
+        public MsiInterpretationCodingCode Code { get; set; }
+
+        [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Display { get; set; }
+
+        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string System { get; set; }
+
+        [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    }
+
+    public partial class MsiMethodCoding
+    {
+        [JsonProperty("code", Required = Required.Always)]
+        public MsiMethodCodingCode Code { get; set; }
+
+        [JsonProperty("display", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Display { get; set; }
+
+        [JsonProperty("system", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string System { get; set; }
+
+        [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    }
+    
     public partial class Provision
     {
         [JsonProperty("date", Required = Required.Always)]
@@ -2136,6 +2190,10 @@ namespace MV64e.MTB
 
     public enum MvhSubmissionType { Addition, Correction, Followup, Initial };
 
+    public enum MsiInterpretationCodingCode { MmrDeficient, MmrProficient, MsiHigh, MsiLow, Stable, Unknown };
+
+    public enum MsiMethodCodingCode { Bioinformatic, Ihc, Pcr };
+    
     public enum Chromosome { Chr1, Chr10, Chr11, Chr12, Chr13, Chr14, Chr15, Chr16, Chr17, Chr18, Chr19, Chr2, Chr20, Chr21, Chr22, Chr3, Chr4, Chr5, Chr6, Chr7, Chr8, Chr9, ChrX, ChrY, ChrMt };
 
     public enum ExternalIdSystem { CancerSangerAcUkCosmic, EnsemblOrg, NcbiNlmNihGovEntrez, NcbiNlmNihGovSnp };
@@ -2229,6 +2287,8 @@ namespace MV64e.MTB
                 ModelProjectConsentPurposeConverter.Singleton,
                 ConsentProvisionConverter.Singleton,
                 MvhSubmissionTypeConverter.Singleton,
+                MsiInterpretationCodingCodeConverter.Singleton,
+                MsiMethodCodingCodeConverter.Singleton,
                 ChromosomeConverter.Singleton,
                 ExternalIdSystemConverter.Singleton,
                 BaseVariantLocalizationCodingCodeConverter.Singleton,
@@ -4049,6 +4109,113 @@ namespace MV64e.MTB
         public static readonly MvhSubmissionTypeConverter Singleton = new MvhSubmissionTypeConverter();
     }
 
+        internal class MsiInterpretationCodingCodeConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(MsiInterpretationCodingCode) || t == typeof(MsiInterpretationCodingCode?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "mmr-deficient":
+                    return MsiInterpretationCodingCode.MmrDeficient;
+                case "mmr-proficient":
+                    return MsiInterpretationCodingCode.MmrProficient;
+                case "msi-high":
+                    return MsiInterpretationCodingCode.MsiHigh;
+                case "msi-low":
+                    return MsiInterpretationCodingCode.MsiLow;
+                case "stable":
+                    return MsiInterpretationCodingCode.Stable;
+                case "unknown":
+                    return MsiInterpretationCodingCode.Unknown;
+            }
+            throw new Exception("Cannot unmarshal type MsiInterpretationCodingCode");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (MsiInterpretationCodingCode)untypedValue;
+            switch (value)
+            {
+                case MsiInterpretationCodingCode.MmrDeficient:
+                    serializer.Serialize(writer, "mmr-deficient");
+                    return;
+                case MsiInterpretationCodingCode.MmrProficient:
+                    serializer.Serialize(writer, "mmr-proficient");
+                    return;
+                case MsiInterpretationCodingCode.MsiHigh:
+                    serializer.Serialize(writer, "msi-high");
+                    return;
+                case MsiInterpretationCodingCode.MsiLow:
+                    serializer.Serialize(writer, "msi-low");
+                    return;
+                case MsiInterpretationCodingCode.Stable:
+                    serializer.Serialize(writer, "stable");
+                    return;
+                case MsiInterpretationCodingCode.Unknown:
+                    serializer.Serialize(writer, "unknown");
+                    return;
+            }
+            throw new Exception("Cannot marshal type MsiInterpretationCodingCode");
+        }
+
+        public static readonly MsiInterpretationCodingCodeConverter Singleton = new MsiInterpretationCodingCodeConverter();
+    }
+
+    internal class MsiMethodCodingCodeConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(MsiMethodCodingCode) || t == typeof(MsiMethodCodingCode?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "IHC":
+                    return MsiMethodCodingCode.Ihc;
+                case "PCR":
+                    return MsiMethodCodingCode.Pcr;
+                case "bioinformatic":
+                    return MsiMethodCodingCode.Bioinformatic;
+            }
+            throw new Exception("Cannot unmarshal type MsiMethodCodingCode");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (MsiMethodCodingCode)untypedValue;
+            switch (value)
+            {
+                case MsiMethodCodingCode.Ihc:
+                    serializer.Serialize(writer, "IHC");
+                    return;
+                case MsiMethodCodingCode.Pcr:
+                    serializer.Serialize(writer, "PCR");
+                    return;
+                case MsiMethodCodingCode.Bioinformatic:
+                    serializer.Serialize(writer, "bioinformatic");
+                    return;
+            }
+            throw new Exception("Cannot marshal type MsiMethodCodingCode");
+        }
+
+        public static readonly MsiMethodCodingCodeConverter Singleton = new MsiMethodCodingCodeConverter();
+    }
+    
     internal class ChromosomeConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(Chromosome) || t == typeof(Chromosome?);
