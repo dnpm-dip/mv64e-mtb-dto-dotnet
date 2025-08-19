@@ -2188,7 +2188,7 @@ namespace MV64e.MTB
 
     public enum ConsentProvision { Deny, Permit };
 
-    public enum MvhSubmissionType { Addition, Correction, Followup, Initial };
+    public enum MvhSubmissionType { Addition, Correction, Followup, Initial, Test };
 
     public enum MsiInterpretationCodingCode { MmrDeficient, MmrProficient, MsiHigh, MsiLow, Stable, Unknown };
 
@@ -4076,6 +4076,8 @@ namespace MV64e.MTB
                     return MvhSubmissionType.Followup;
                 case "initial":
                     return MvhSubmissionType.Initial;
+                case "test":
+                    return MvhSubmissionType.Test;
             }
             throw new Exception("Cannot unmarshal type MvhSubmissionType");
         }
@@ -4101,6 +4103,9 @@ namespace MV64e.MTB
                     return;
                 case MvhSubmissionType.Initial:
                     serializer.Serialize(writer, "initial");
+                    return;
+                case MvhSubmissionType.Test:
+                    serializer.Serialize(writer, "test");
                     return;
             }
             throw new Exception("Cannot marshal type MvhSubmissionType");
