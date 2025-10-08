@@ -29,7 +29,7 @@ namespace MV64e.MTB
 
         [JsonProperty("familyMemberHistories", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<FamilyMemberHistory> FamilyMemberHistories { get; set; }
-        
+
         [JsonProperty("followUps", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<FollowUp> FollowUps { get; set; }
 
@@ -50,7 +50,7 @@ namespace MV64e.MTB
 
         [JsonProperty("msiFindings", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<Msi> MsiFindings { get; set; }
-        
+
         [JsonProperty("ngsReports", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<SomaticNgsReport> NgsReports { get; set; }
 
@@ -768,7 +768,7 @@ namespace MV64e.MTB
         [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public string Version { get; set; }
     }
-    
+
     public partial class FollowUp
     {
         [JsonProperty("date", Required = Required.Always)]
@@ -1116,6 +1116,9 @@ namespace MV64e.MTB
         [JsonProperty("tpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public long? TpsScore { get; set; }
 
+        [JsonProperty("cpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public long? CpsScore { get; set; }
+
         [JsonProperty("value", Required = Required.Always)]
         public ProteinExpressionResultCoding Value { get; set; }
     }
@@ -1266,7 +1269,7 @@ namespace MV64e.MTB
         [JsonProperty("version", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public string Version { get; set; }
     }
-    
+
     public partial class Provision
     {
         [JsonProperty("date", Required = Required.Always)]
@@ -2159,7 +2162,7 @@ namespace MV64e.MTB
     public enum ValueCode { Main, Metachronous, Secondary };
 
     public enum FamilyMemberHistoryRelationshipTypeCodingCode { Ext, Fammemb };
-    
+
     public enum FollowUpPatientStatusCodingCode { LostToFu };
 
     public enum OncoProcedureCodingCode { NuclearMedicine, RadioTherapy, Surgery };
@@ -2193,7 +2196,7 @@ namespace MV64e.MTB
     public enum MsiInterpretationCodingCode { MmrDeficient, MmrProficient, MsiHigh, MsiLow, Stable, Unknown };
 
     public enum MsiMethodCodingCode { Bioinformatic, Ihc, Pcr };
-    
+
     public enum Chromosome { Chr1, Chr10, Chr11, Chr12, Chr13, Chr14, Chr15, Chr16, Chr17, Chr18, Chr19, Chr2, Chr20, Chr21, Chr22, Chr3, Chr4, Chr5, Chr6, Chr7, Chr8, Chr9, ChrX, ChrY, ChrMt };
 
     public enum ExternalIdSystem { CancerSangerAcUkCosmic, EnsemblOrg, NcbiNlmNihGovEntrez, NcbiNlmNihGovSnp };
@@ -3300,7 +3303,7 @@ namespace MV64e.MTB
 
         public static readonly FamilyMemberHistoryRelationshipTypeCodingCodeConverter Singleton = new FamilyMemberHistoryRelationshipTypeCodingCodeConverter();
     }
-    
+
     internal class FollowUpPatientStatusCodingCodeConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(FollowUpPatientStatusCodingCode) || t == typeof(FollowUpPatientStatusCodingCode?);
@@ -4220,7 +4223,7 @@ namespace MV64e.MTB
 
         public static readonly MsiMethodCodingCodeConverter Singleton = new MsiMethodCodingCodeConverter();
     }
-    
+
     internal class ChromosomeConverter : JsonConverter
     {
         public override bool CanConvert(Type t) => t == typeof(Chromosome) || t == typeof(Chromosome?);
