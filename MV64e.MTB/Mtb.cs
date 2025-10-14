@@ -5,7 +5,6 @@ namespace MV64e.MTB
 {
     using System;
     using System.Collections.Generic;
-
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
@@ -27,19 +26,23 @@ namespace MV64e.MTB
         [JsonProperty("episodesOfCare", Required = Required.Always)]
         public List<MtbEpisodeOfCare> EpisodesOfCare { get; set; }
 
-        [JsonProperty("familyMemberHistories", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("familyMemberHistories", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<FamilyMemberHistory> FamilyMemberHistories { get; set; }
 
         [JsonProperty("followUps", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<FollowUp> FollowUps { get; set; }
 
-        [JsonProperty("guidelineProcedures", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("guidelineProcedures", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<OncoProcedure> GuidelineProcedures { get; set; }
 
-        [JsonProperty("guidelineTherapies", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("guidelineTherapies", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<MtbSystemicTherapy> GuidelineTherapies { get; set; }
 
-        [JsonProperty("histologyReports", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("histologyReports", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<HistologyReport> HistologyReports { get; set; }
 
         [JsonProperty("ihcReports", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -57,10 +60,12 @@ namespace MV64e.MTB
         [JsonProperty("patient", Required = Required.Always)]
         public Patient Patient { get; set; }
 
-        [JsonProperty("performanceStatus", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("performanceStatus", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<PerformanceStatus> PerformanceStatus { get; set; }
 
-        [JsonProperty("priorDiagnosticReports", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("priorDiagnosticReports", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<PriorDiagnosticReport> PriorDiagnosticReports { get; set; }
 
         [JsonProperty("responses", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -69,16 +74,19 @@ namespace MV64e.MTB
         [JsonProperty("specimens", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public List<TumorSpecimen> Specimens { get; set; }
 
-        [JsonProperty("systemicTherapies", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("systemicTherapies", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<SystemicTherapy> SystemicTherapies { get; set; }
     }
 
     public partial class MtbCarePlan
     {
-        [JsonProperty("geneticCounselingRecommendation", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("geneticCounselingRecommendation", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public GeneticCounselingRecommendation GeneticCounselingRecommendation { get; set; }
 
-        [JsonProperty("histologyReevaluationRequests", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("histologyReevaluationRequests", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<HistologyReevaluationRequest> HistologyReevaluationRequests { get; set; }
 
         [JsonProperty("id", Required = Required.Always)]
@@ -87,10 +95,12 @@ namespace MV64e.MTB
         [JsonProperty("issuedOn", Required = Required.Always)]
         public DateTimeOffset IssuedOn { get; set; }
 
-        [JsonProperty("medicationRecommendations", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("medicationRecommendations", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<MtbMedicationRecommendation> MedicationRecommendations { get; set; }
 
-        [JsonProperty("noSequencingPerformedReason", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("noSequencingPerformedReason", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public CarePlanNoSequencingPerformedReasonCoding NoSequencingPerformedReason { get; set; }
 
         [JsonProperty("notes", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -99,19 +109,23 @@ namespace MV64e.MTB
         [JsonProperty("patient", Required = Required.Always)]
         public Reference Patient { get; set; }
 
-        [JsonProperty("procedureRecommendations", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("procedureRecommendations", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<ProcedureRecommendation> ProcedureRecommendations { get; set; }
 
         [JsonProperty("reason", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public Reference Reason { get; set; }
 
-        [JsonProperty("rebiopsyRequests", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("rebiopsyRequests", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<RebiopsyRequest> RebiopsyRequests { get; set; }
 
-        [JsonProperty("recommendationsMissingReason", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("recommendationsMissingReason", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public MtbCarePlanRecommendationsMissingReasonCoding RecommendationsMissingReason { get; set; }
 
-        [JsonProperty("studyEnrollmentRecommendations", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("studyEnrollmentRecommendations", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<MtbStudyEnrollmentRecommendation> StudyEnrollmentRecommendations { get; set; }
     }
 
@@ -186,7 +200,8 @@ namespace MV64e.MTB
         [JsonProperty("issuedOn", Required = Required.Always)]
         public DateTimeOffset IssuedOn { get; set; }
 
-        [JsonProperty("levelOfEvidence", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("levelOfEvidence", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public LevelOfEvidence LevelOfEvidence { get; set; }
 
         [JsonProperty("medication", Required = Required.Always)]
@@ -201,7 +216,8 @@ namespace MV64e.MTB
         [JsonProperty("reason", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public Reference Reason { get; set; }
 
-        [JsonProperty("supportingVariants", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("supportingVariants", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<GeneAlterationReference> SupportingVariants { get; set; }
 
         [JsonProperty("useType", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -378,7 +394,8 @@ namespace MV64e.MTB
         [JsonProperty("issuedOn", Required = Required.Always)]
         public DateTimeOffset IssuedOn { get; set; }
 
-        [JsonProperty("levelOfEvidence", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("levelOfEvidence", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public LevelOfEvidence LevelOfEvidence { get; set; }
 
         [JsonProperty("patient", Required = Required.Always)]
@@ -390,7 +407,8 @@ namespace MV64e.MTB
         [JsonProperty("reason", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public Reference Reason { get; set; }
 
-        [JsonProperty("supportingVariants", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("supportingVariants", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<GeneAlterationReference> SupportingVariants { get; set; }
     }
 
@@ -447,7 +465,8 @@ namespace MV64e.MTB
         [JsonProperty("issuedOn", Required = Required.Always)]
         public DateTimeOffset IssuedOn { get; set; }
 
-        [JsonProperty("levelOfEvidence", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("levelOfEvidence", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public LevelOfEvidence LevelOfEvidence { get; set; }
 
         [JsonProperty("medication", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -465,7 +484,8 @@ namespace MV64e.MTB
         [JsonProperty("study", Required = Required.Always)]
         public List<StudyReference> Study { get; set; }
 
-        [JsonProperty("supportingVariants", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("supportingVariants", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<GeneAlterationReference> SupportingVariants { get; set; }
     }
 
@@ -549,7 +569,8 @@ namespace MV64e.MTB
         [JsonProperty("recommendation", Required = Required.Always)]
         public Reference Recommendation { get; set; }
 
-        [JsonProperty("requestedMedication", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("requestedMedication", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<AtcUnregisteredMedicationCoding> RequestedMedication { get; set; }
 
         [JsonProperty("stage", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -582,7 +603,8 @@ namespace MV64e.MTB
         [JsonProperty("grading", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public Grading Grading { get; set; }
 
-        [JsonProperty("guidelineTreatmentStatus", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("guidelineTreatmentStatus", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public MtbDiagnosisGuidelineTreatmentStatusCoding GuidelineTreatmentStatus { get; set; }
 
         [JsonProperty("histology", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -654,10 +676,12 @@ namespace MV64e.MTB
         [JsonProperty("method", Required = Required.Always)]
         public TumorStagingMethodCoding Method { get; set; }
 
-        [JsonProperty("otherClassifications", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("otherClassifications", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<Coding> OtherClassifications { get; set; }
 
-        [JsonProperty("tnmClassification", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("tnmClassification", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public TnmClassification TnmClassification { get; set; }
     }
 
@@ -774,7 +798,8 @@ namespace MV64e.MTB
         [JsonProperty("date", Required = Required.Always)]
         public DateTimeOffset Date { get; set; }
 
-        [JsonProperty("lastContactDate", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("lastContactDate", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public DateTimeOffset? LastContactDate { get; set; }
 
         [JsonProperty("patient", Required = Required.Always)]
@@ -930,7 +955,8 @@ namespace MV64e.MTB
         [JsonProperty("reason", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public Reference Reason { get; set; }
 
-        [JsonProperty("recommendationFulfillmentStatus", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("recommendationFulfillmentStatus", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public MtbSystemicTherapyRecommendationFulfillmentStatusCoding RecommendationFulfillmentStatus { get; set; }
 
         [JsonProperty("recordedOn", Required = Required.Always)]
@@ -1011,7 +1037,8 @@ namespace MV64e.MTB
 
     public partial class HistologyReportResults
     {
-        [JsonProperty("tumorCellContent", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("tumorCellContent", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public TumorCellContent TumorCellContent { get; set; }
 
         [JsonProperty("tumorMorphology", Required = Required.Always)]
@@ -1188,6 +1215,9 @@ namespace MV64e.MTB
         [JsonProperty("tpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public long? TpsScore { get; set; }
 
+        [JsonProperty("cpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public long? CpsScore { get; set; }
+
         [JsonProperty("value", Required = Required.Always)]
         public ProteinExpressionResultCoding Value { get; set; }
     }
@@ -1197,7 +1227,8 @@ namespace MV64e.MTB
         [JsonProperty("modelProjectConsent", Required = Required.Always)]
         public ModelProjectConsent ModelProjectConsent { get; set; }
 
-        [JsonProperty("researchConsents", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("researchConsents", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<Dictionary<string, object>> ResearchConsents { get; set; }
 
         [JsonProperty("transferTAN", Required = Required.Always)]
@@ -1219,7 +1250,7 @@ namespace MV64e.MTB
         public string Version { get; set; }
     }
 
-        public partial class Msi
+    public partial class Msi
     {
         [JsonProperty("id", Required = Required.Always)]
         public string Id { get; set; }
@@ -1329,7 +1360,8 @@ namespace MV64e.MTB
         [JsonProperty("brcaness", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public Brcaness Brcaness { get; set; }
 
-        [JsonProperty("copyNumberVariants", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("copyNumberVariants", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<Cnv> CopyNumberVariants { get; set; }
 
         [JsonProperty("dnaFusions", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -1350,7 +1382,8 @@ namespace MV64e.MTB
         [JsonProperty("tmb", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public Tmb Tmb { get; set; }
 
-        [JsonProperty("tumorCellContent", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("tumorCellContent", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public TumorCellContent TumorCellContent { get; set; }
     }
 
@@ -1392,7 +1425,8 @@ namespace MV64e.MTB
         [JsonProperty("cnB", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public double? CnB { get; set; }
 
-        [JsonProperty("copyNumberNeutralLoH", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("copyNumberNeutralLoH", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<Coding> CopyNumberNeutralLoH { get; set; }
 
         [JsonProperty("endRange", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -1410,19 +1444,23 @@ namespace MV64e.MTB
         [JsonProperty("patient", Required = Required.Always)]
         public Reference Patient { get; set; }
 
-        [JsonProperty("relativeCopyNumber", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("relativeCopyNumber", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public double? RelativeCopyNumber { get; set; }
 
-        [JsonProperty("reportedAffectedGenes", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("reportedAffectedGenes", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public List<Coding> ReportedAffectedGenes { get; set; }
 
-        [JsonProperty("reportedFocality", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("reportedFocality", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public string ReportedFocality { get; set; }
 
         [JsonProperty("startRange", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public StartRange StartRange { get; set; }
 
-        [JsonProperty("totalCopyNumber", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("totalCopyNumber", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public long? TotalCopyNumber { get; set; }
 
         [JsonProperty("type", Required = Required.Always)]
@@ -1680,7 +1718,8 @@ namespace MV64e.MTB
         [JsonProperty("rawCounts", Required = Required.Always)]
         public long RawCounts { get; set; }
 
-        [JsonProperty("tissueCorrectedExpression", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("tissueCorrectedExpression", Required = Required.DisallowNull,
+            NullValueHandling = NullValueHandling.Ignore)]
         public bool? TissueCorrectedExpression { get; set; }
 
         [JsonProperty("transcriptId", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
@@ -2125,121 +2164,510 @@ namespace MV64e.MTB
         public List<MtbSystemicTherapy> History { get; set; }
     }
 
-    public enum GeneticCounselingRecommendationReasonCodingCode { FamilyAnamnesis, Other, SecondaryTumor, SelfAnamnesis, Unknown };
+    public enum GeneticCounselingRecommendationReasonCodingCode
+    {
+        FamilyAnamnesis,
+        Other,
+        SecondaryTumor,
+        SelfAnamnesis,
+        Unknown
+    };
 
-    public enum MtbMedicationRecommendationCategoryCodingCode { Ch, Ho, Im, So, Sz, Zs };
+    public enum MtbMedicationRecommendationCategoryCodingCode
+    {
+        Ch,
+        Ho,
+        Im,
+        So,
+        Sz,
+        Zs
+    };
 
-    public enum LevelOfEvidenceAddendumCodingCode { Is, Iv, R, Z };
+    public enum LevelOfEvidenceAddendumCodingCode
+    {
+        Is,
+        Iv,
+        R,
+        Z
+    };
 
-    public enum LevelOfEvidenceGradingCodingCode { M1A, M1B, M1C, M2A, M2B, M2C, M3, M4, Undefined };
+    public enum LevelOfEvidenceGradingCodingCode
+    {
+        M1A,
+        M1B,
+        M1C,
+        M2A,
+        M2B,
+        M2C,
+        M3,
+        M4,
+        Undefined
+    };
 
-    public enum PublicationSystem { PubmedNcbiNlmNihGov, DoiOrg };
+    public enum PublicationSystem
+    {
+        PubmedNcbiNlmNihGov,
+        DoiOrg
+    };
 
-    public enum RequestedMedicationSystem { HttpFhirDeCodeSystemBfarmAtc, Undefined };
+    public enum RequestedMedicationSystem
+    {
+        HttpFhirDeCodeSystemBfarmAtc,
+        Undefined
+    };
 
-    public enum RecommendationPriorityCodingCode { Code1, Code2, Code3, Code4 };
+    public enum RecommendationPriorityCodingCode
+    {
+        Code1,
+        Code2,
+        Code3,
+        Code4
+    };
 
-    public enum MtbMedicationRecommendationUseTypeCodingCode { Compassionate, InLabel, OffLabel, SecPreventive, Unknown };
+    public enum MtbMedicationRecommendationUseTypeCodingCode
+    {
+        Compassionate,
+        InLabel,
+        OffLabel,
+        SecPreventive,
+        Unknown
+    };
 
-    public enum NoSequencingPerformedReasonCode { NonGeneticCause, NotRareDisease, Other, Psychosomatic, TargetedDiagnosticsRecommended };
+    public enum NoSequencingPerformedReasonCode
+    {
+        NonGeneticCause,
+        NotRareDisease,
+        Other,
+        Psychosomatic,
+        TargetedDiagnosticsRecommended
+    };
 
-    public enum MtbProcedureRecommendationCategoryCodingCode { As, Op, So, St, Ws, Ww };
+    public enum MtbProcedureRecommendationCategoryCodingCode
+    {
+        As,
+        Op,
+        So,
+        St,
+        Ws,
+        Ww
+    };
 
-    public enum MtbCarePlanRecommendationsMissingReasonCodingCode { NoTarget };
+    public enum MtbCarePlanRecommendationsMissingReasonCodingCode
+    {
+        NoTarget
+    };
 
-    public enum StudySystem { Drks, Eudamed, EudraCt, Nct };
+    public enum StudySystem
+    {
+        Drks,
+        Eudamed,
+        EudraCt,
+        Nct
+    };
 
-    public enum ClaimResponseStatusCodingCode { Accepted, Rejected, Unknown };
+    public enum ClaimResponseStatusCodingCode
+    {
+        Accepted,
+        Rejected,
+        Unknown
+    };
 
-    public enum ClaimResponseStatusReasonCodingCode { ApprovalRevocation, FormalReasons, InclusionInStudy, InsufficientEvidence, Other, OtherTherapyRecommended, StandardTherapyNotExhausted, Unknown };
+    public enum ClaimResponseStatusReasonCodingCode
+    {
+        ApprovalRevocation,
+        FormalReasons,
+        InclusionInStudy,
+        InsufficientEvidence,
+        Other,
+        OtherTherapyRecommended,
+        StandardTherapyNotExhausted,
+        Unknown
+    };
 
-    public enum ClaimStageCodingCode { FollowUpClaim, InitialClaim, Revocation, Unknown };
+    public enum ClaimStageCodingCode
+    {
+        FollowUpClaim,
+        InitialClaim,
+        Revocation,
+        Unknown
+    };
 
-    public enum MtbDiagnosisGuidelineTreatmentStatusCodingCode { Exhausted, Impossible, NoGuidelinesAvailable, NonExhausted, Unknown };
+    public enum MtbDiagnosisGuidelineTreatmentStatusCodingCode
+    {
+        Exhausted,
+        Impossible,
+        NoGuidelinesAvailable,
+        NonExhausted,
+        Unknown
+    };
 
-    public enum TumorStagingMethodCodingCode { Clinical, Pathologic };
+    public enum TumorStagingMethodCodingCode
+    {
+        Clinical,
+        Pathologic
+    };
 
-    public enum ValueCode { Main, Metachronous, Secondary };
+    public enum ValueCode
+    {
+        Main,
+        Metachronous,
+        Secondary
+    };
 
-    public enum FamilyMemberHistoryRelationshipTypeCodingCode { Ext, Fammemb };
+    public enum FamilyMemberHistoryRelationshipTypeCodingCode
+    {
+        Ext,
+        Fammemb
+    };
 
-    public enum FollowUpPatientStatusCodingCode { LostToFu };
+    public enum FollowUpPatientStatusCodingCode
+    {
+        LostToFu
+    };
 
-    public enum OncoProcedureCodingCode { NuclearMedicine, RadioTherapy, Surgery };
+    public enum OncoProcedureCodingCode
+    {
+        NuclearMedicine,
+        RadioTherapy,
+        Surgery
+    };
 
-    public enum MtbTherapyIntentCodingCode { K, P, S, X };
+    public enum MtbTherapyIntentCodingCode
+    {
+        K,
+        P,
+        S,
+        X
+    };
 
-    public enum TherapyStatusCodingCode { Completed, NotDone, OnGoing, Stopped, Unknown };
+    public enum TherapyStatusCodingCode
+    {
+        Completed,
+        NotDone,
+        OnGoing,
+        Stopped,
+        Unknown
+    };
 
-    public enum MtbTherapyStatusReasonCodingCode { BestSupportiveCare, ChronicRemission, Deterioration, LostToFu, MedicalReasons, NoIndication, Other, OtherTherapyChosen, PatientDeath, PatientRefusal, PatientWish, PaymentEnded, PaymentPending, PaymentRefused, Progression, RegularCompletion, RegularCompletionWithDosageReduction, RegularCompletionWithSubstanceChange, Toxicity };
+    public enum MtbTherapyStatusReasonCodingCode
+    {
+        BestSupportiveCare,
+        ChronicRemission,
+        Deterioration,
+        LostToFu,
+        MedicalReasons,
+        NoIndication,
+        Other,
+        OtherTherapyChosen,
+        PatientDeath,
+        PatientRefusal,
+        PatientWish,
+        PaymentEnded,
+        PaymentPending,
+        PaymentRefused,
+        Progression,
+        RegularCompletion,
+        RegularCompletionWithDosageReduction,
+        RegularCompletionWithSubstanceChange,
+        Toxicity
+    };
 
-    public enum MtbSystemicTherapyCategoryCodingCode { A, I, N, O, S };
+    public enum MtbSystemicTherapyCategoryCodingCode
+    {
+        A,
+        I,
+        N,
+        O,
+        S
+    };
 
-    public enum MtbSystemicTherapyDosageDensityCodingCode { Over50, Under50 };
+    public enum MtbSystemicTherapyDosageDensityCodingCode
+    {
+        Over50,
+        Under50
+    };
 
-    public enum MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode { Complete, Partial };
+    public enum MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode
+    {
+        Complete,
+        Partial
+    };
 
-    public enum TumorCellContentMethodCodingCode { Bioinformatic, Histologic };
+    public enum TumorCellContentMethodCodingCode
+    {
+        Bioinformatic,
+        Histologic
+    };
 
-    public enum ProteinExpressionIcScoreCodingCode { Code0, Code1, Code2, Code3 };
+    public enum ProteinExpressionIcScoreCodingCode
+    {
+        Code0,
+        Code1,
+        Code2,
+        Code3
+    };
 
-    public enum ProteinExpressionTcScoreCodingCode { Code0, Code1, Code2, Code3, Code4, Code5, Code6 };
+    public enum ProteinExpressionTcScoreCodingCode
+    {
+        Code0,
+        Code1,
+        Code2,
+        Code3,
+        Code4,
+        Code5,
+        Code6
+    };
 
-    public enum ProteinExpressionResultCodingCode { Exp, NotExp, Code1Plus, Code2Plus, Code3Plus, Unknown };
+    public enum ProteinExpressionResultCodingCode
+    {
+        Exp,
+        NotExp,
+        Code1Plus,
+        Code2Plus,
+        Code3Plus,
+        Unknown
+    };
 
-    public enum ModelProjectConsentPurpose { CaseIdentification, Reidentification, Sequencing };
+    public enum ModelProjectConsentPurpose
+    {
+        CaseIdentification,
+        Reidentification,
+        Sequencing
+    };
 
-    public enum ConsentProvision { Deny, Permit };
+    public enum ConsentProvision
+    {
+        Deny,
+        Permit
+    };
 
-    public enum MvhSubmissionType { Addition, Correction, Followup, Initial, Test };
+    public enum MvhSubmissionType
+    {
+        Addition,
+        Correction,
+        Followup,
+        Initial,
+        Test
+    };
 
-    public enum MsiInterpretationCodingCode { MmrDeficient, MmrProficient, MsiHigh, MsiLow, Stable, Unknown };
+    public enum MsiInterpretationCodingCode
+    {
+        MmrDeficient,
+        MmrProficient,
+        MsiHigh,
+        MsiLow,
+        Stable,
+        Unknown
+    };
 
-    public enum MsiMethodCodingCode { Bioinformatic, Ihc, Pcr };
+    public enum MsiMethodCodingCode
+    {
+        Bioinformatic,
+        Ihc,
+        Pcr
+    };
 
-    public enum Chromosome { Chr1, Chr10, Chr11, Chr12, Chr13, Chr14, Chr15, Chr16, Chr17, Chr18, Chr19, Chr2, Chr20, Chr21, Chr22, Chr3, Chr4, Chr5, Chr6, Chr7, Chr8, Chr9, ChrX, ChrY, ChrMt };
+    public enum Chromosome
+    {
+        Chr1,
+        Chr10,
+        Chr11,
+        Chr12,
+        Chr13,
+        Chr14,
+        Chr15,
+        Chr16,
+        Chr17,
+        Chr18,
+        Chr19,
+        Chr2,
+        Chr20,
+        Chr21,
+        Chr22,
+        Chr3,
+        Chr4,
+        Chr5,
+        Chr6,
+        Chr7,
+        Chr8,
+        Chr9,
+        ChrX,
+        ChrY,
+        ChrMt
+    };
 
-    public enum ExternalIdSystem { CancerSangerAcUkCosmic, EnsemblOrg, NcbiNlmNihGovEntrez, NcbiNlmNihGovSnp };
+    public enum ExternalIdSystem
+    {
+        CancerSangerAcUkCosmic,
+        EnsemblOrg,
+        NcbiNlmNihGovEntrez,
+        NcbiNlmNihGovSnp
+    };
 
-    public enum BaseVariantLocalizationCodingCode { CodingRegion, Intergenic, Intronic, RegulatoryRegion, SplicingRegion };
+    public enum BaseVariantLocalizationCodingCode
+    {
+        CodingRegion,
+        Intergenic,
+        Intronic,
+        RegulatoryRegion,
+        SplicingRegion
+    };
 
-    public enum CnvCodingCode { HighLevelGain, Loss, LowLevelGain };
+    public enum CnvCodingCode
+    {
+        HighLevelGain,
+        Loss,
+        LowLevelGain
+    };
 
-    public enum InterpretationCodingCode { High, Intermediate, Low };
+    public enum InterpretationCodingCode
+    {
+        High,
+        Intermediate,
+        Low
+    };
 
-    public enum RnaFusionStrand { Empty, RnaFusionStrand };
+    public enum RnaFusionStrand
+    {
+        Empty,
+        RnaFusionStrand
+    };
 
-    public enum TranscriptIdSystem { EnsemblOrg, NcbiNlmNihGovRefseq };
+    public enum TranscriptIdSystem
+    {
+        EnsemblOrg,
+        NcbiNlmNihGovRefseq
+    };
 
-    public enum ClinVarCodingCode { Code1, Code2, Code3, Code4, Code5 };
+    public enum ClinVarCodingCode
+    {
+        Code1,
+        Code2,
+        Code3,
+        Code4,
+        Code5
+    };
 
-    public enum NgsReportCodingCode { Array, Exome, GenomeLongRead, GenomeShortRead, Karyotyping, Other, Panel, Single };
+    public enum NgsReportCodingCode
+    {
+        Array,
+        Exome,
+        GenomeLongRead,
+        GenomeShortRead,
+        Karyotyping,
+        Other,
+        Panel,
+        Single
+    };
 
-    public enum Unit { Months, Years };
+    public enum Unit
+    {
+        Months,
+        Years
+    };
 
-    public enum GenderCodingCode { Female, Male, Other, Unknown };
+    public enum GenderCodingCode
+    {
+        Female,
+        Male,
+        Other,
+        Unknown
+    };
 
-    public enum HealthInsuranceCodingCode { Bei, Bg, Gkv, Gpv, Pkv, Ppv, Sel, Skt, Soz, Unk };
+    public enum HealthInsuranceCodingCode
+    {
+        Bei,
+        Bg,
+        Gkv,
+        Gpv,
+        Pkv,
+        Ppv,
+        Sel,
+        Skt,
+        Soz,
+        Unk
+    };
 
-    public enum VitalStatusCodingCode { Alive, Deceased };
+    public enum VitalStatusCodingCode
+    {
+        Alive,
+        Deceased
+    };
 
-    public enum EcogCodingCode { Code0, Code1, Code2, Code3, Code4, Code5 };
+    public enum EcogCodingCode
+    {
+        Code0,
+        Code1,
+        Code2,
+        Code3,
+        Code4,
+        Code5
+    };
 
-    public enum MolecularDiagnosticReportCodingCode { Array, Exome, Fish, FusionPanel, GenePanel, GenomeLongRead, GenomeShortRead, Karyotyping, Other, Panel, Pcr, Single };
+    public enum MolecularDiagnosticReportCodingCode
+    {
+        Array,
+        Exome,
+        Fish,
+        FusionPanel,
+        GenePanel,
+        GenomeLongRead,
+        GenomeShortRead,
+        Karyotyping,
+        Other,
+        Panel,
+        Pcr,
+        Single
+    };
 
-    public enum ResponseMethodCodingCode { Rano, Recist };
+    public enum ResponseMethodCodingCode
+    {
+        Rano,
+        Recist
+    };
 
-    public enum RecistCodingCode { Cr, Mr, Na, Pd, Pr, Sd };
+    public enum RecistCodingCode
+    {
+        Cr,
+        Mr,
+        Na,
+        Pd,
+        Pr,
+        Sd
+    };
 
-    public enum TumorSpecimenCollectionLocalizationCodingCode { CellfreeDna, LocalRecurrence, Metastasis, PrimaryTumor, RegionalLymphNodes, Unknown };
+    public enum TumorSpecimenCollectionLocalizationCodingCode
+    {
+        CellfreeDna,
+        LocalRecurrence,
+        Metastasis,
+        PrimaryTumor,
+        RegionalLymphNodes,
+        Unknown
+    };
 
-    public enum TumorSpecimenCollectionMethodCodingCode { Biopsy, Cytology, LiquidBiopsy, Resection, Unknown };
+    public enum TumorSpecimenCollectionMethodCodingCode
+    {
+        Biopsy,
+        Cytology,
+        LiquidBiopsy,
+        Resection,
+        Unknown
+    };
 
-    public enum TumorSpecimenCodingCode { CryoFrozen, Ffpe, FreshTissue, LiquidBiopsy, Unknown };
+    public enum TumorSpecimenCodingCode
+    {
+        CryoFrozen,
+        Ffpe,
+        FreshTissue,
+        LiquidBiopsy,
+        Unknown
+    };
 
     public partial class Mtb
     {
-        public static Mtb FromJson(string json) => JsonConvert.DeserializeObject<Mtb>(json, MV64e.MTB.Converter.Settings);
+        public static Mtb FromJson(string json) =>
+            JsonConvert.DeserializeObject<Mtb>(json, MV64e.MTB.Converter.Settings);
     }
 
     public static class Serialize
@@ -2319,7 +2747,8 @@ namespace MV64e.MTB
 
     internal class GeneticCounselingRecommendationReasonCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(GeneticCounselingRecommendationReasonCodingCode) || t == typeof(GeneticCounselingRecommendationReasonCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(GeneticCounselingRecommendationReasonCodingCode) ||
+                                                   t == typeof(GeneticCounselingRecommendationReasonCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2338,6 +2767,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return GeneticCounselingRecommendationReasonCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type GeneticCounselingRecommendationReasonCodingCode");
         }
 
@@ -2348,6 +2778,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (GeneticCounselingRecommendationReasonCodingCode)untypedValue;
             switch (value)
             {
@@ -2367,15 +2798,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type GeneticCounselingRecommendationReasonCodingCode");
         }
 
-        public static readonly GeneticCounselingRecommendationReasonCodingCodeConverter Singleton = new GeneticCounselingRecommendationReasonCodingCodeConverter();
+        public static readonly GeneticCounselingRecommendationReasonCodingCodeConverter Singleton =
+            new GeneticCounselingRecommendationReasonCodingCodeConverter();
     }
 
     internal class MtbMedicationRecommendationCategoryCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbMedicationRecommendationCategoryCodingCode) || t == typeof(MtbMedicationRecommendationCategoryCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbMedicationRecommendationCategoryCodingCode) ||
+                                                   t == typeof(MtbMedicationRecommendationCategoryCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2396,6 +2830,7 @@ namespace MV64e.MTB
                 case "ZS":
                     return MtbMedicationRecommendationCategoryCodingCode.Zs;
             }
+
             throw new Exception("Cannot unmarshal type MtbMedicationRecommendationCategoryCodingCode");
         }
 
@@ -2406,6 +2841,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbMedicationRecommendationCategoryCodingCode)untypedValue;
             switch (value)
             {
@@ -2428,15 +2864,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "ZS");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbMedicationRecommendationCategoryCodingCode");
         }
 
-        public static readonly MtbMedicationRecommendationCategoryCodingCodeConverter Singleton = new MtbMedicationRecommendationCategoryCodingCodeConverter();
+        public static readonly MtbMedicationRecommendationCategoryCodingCodeConverter Singleton =
+            new MtbMedicationRecommendationCategoryCodingCodeConverter();
     }
 
     internal class LevelOfEvidenceAddendumCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(LevelOfEvidenceAddendumCodingCode) || t == typeof(LevelOfEvidenceAddendumCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(LevelOfEvidenceAddendumCodingCode) ||
+                                                   t == typeof(LevelOfEvidenceAddendumCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2453,6 +2892,7 @@ namespace MV64e.MTB
                 case "iv":
                     return LevelOfEvidenceAddendumCodingCode.Iv;
             }
+
             throw new Exception("Cannot unmarshal type LevelOfEvidenceAddendumCodingCode");
         }
 
@@ -2463,6 +2903,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (LevelOfEvidenceAddendumCodingCode)untypedValue;
             switch (value)
             {
@@ -2479,15 +2920,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "iv");
                     return;
             }
+
             throw new Exception("Cannot marshal type LevelOfEvidenceAddendumCodingCode");
         }
 
-        public static readonly LevelOfEvidenceAddendumCodingCodeConverter Singleton = new LevelOfEvidenceAddendumCodingCodeConverter();
+        public static readonly LevelOfEvidenceAddendumCodingCodeConverter Singleton =
+            new LevelOfEvidenceAddendumCodingCodeConverter();
     }
 
     internal class LevelOfEvidenceGradingCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(LevelOfEvidenceGradingCodingCode) || t == typeof(LevelOfEvidenceGradingCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(LevelOfEvidenceGradingCodingCode) ||
+                                                   t == typeof(LevelOfEvidenceGradingCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2514,6 +2958,7 @@ namespace MV64e.MTB
                 case "undefined":
                     return LevelOfEvidenceGradingCodingCode.Undefined;
             }
+
             throw new Exception("Cannot unmarshal type LevelOfEvidenceGradingCodingCode");
         }
 
@@ -2524,6 +2969,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (LevelOfEvidenceGradingCodingCode)untypedValue;
             switch (value)
             {
@@ -2555,10 +3001,12 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "undefined");
                     return;
             }
+
             throw new Exception("Cannot marshal type LevelOfEvidenceGradingCodingCode");
         }
 
-        public static readonly LevelOfEvidenceGradingCodingCodeConverter Singleton = new LevelOfEvidenceGradingCodingCodeConverter();
+        public static readonly LevelOfEvidenceGradingCodingCodeConverter Singleton =
+            new LevelOfEvidenceGradingCodingCodeConverter();
     }
 
     internal class PublicationSystemConverter : JsonConverter
@@ -2576,6 +3024,7 @@ namespace MV64e.MTB
                 case "https://www.doi.org":
                     return PublicationSystem.DoiOrg;
             }
+
             throw new Exception("Cannot unmarshal type PublicationSystem");
         }
 
@@ -2586,6 +3035,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (PublicationSystem)untypedValue;
             switch (value)
             {
@@ -2596,6 +3046,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "https://www.doi.org");
                     return;
             }
+
             throw new Exception("Cannot marshal type PublicationSystem");
         }
 
@@ -2604,7 +3055,8 @@ namespace MV64e.MTB
 
     internal class RequestedMedicationSystemConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(RequestedMedicationSystem) || t == typeof(RequestedMedicationSystem?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(RequestedMedicationSystem) || t == typeof(RequestedMedicationSystem?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2617,6 +3069,7 @@ namespace MV64e.MTB
                 case "undefined":
                     return RequestedMedicationSystem.Undefined;
             }
+
             throw new Exception("Cannot unmarshal type RequestedMedicationSystem");
         }
 
@@ -2627,6 +3080,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (RequestedMedicationSystem)untypedValue;
             switch (value)
             {
@@ -2637,6 +3091,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "undefined");
                     return;
             }
+
             throw new Exception("Cannot marshal type RequestedMedicationSystem");
         }
 
@@ -2645,7 +3100,8 @@ namespace MV64e.MTB
 
     internal class RecommendationPriorityCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(RecommendationPriorityCodingCode) || t == typeof(RecommendationPriorityCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(RecommendationPriorityCodingCode) ||
+                                                   t == typeof(RecommendationPriorityCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2662,6 +3118,7 @@ namespace MV64e.MTB
                 case "4":
                     return RecommendationPriorityCodingCode.Code4;
             }
+
             throw new Exception("Cannot unmarshal type RecommendationPriorityCodingCode");
         }
 
@@ -2672,6 +3129,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (RecommendationPriorityCodingCode)untypedValue;
             switch (value)
             {
@@ -2688,15 +3146,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "4");
                     return;
             }
+
             throw new Exception("Cannot marshal type RecommendationPriorityCodingCode");
         }
 
-        public static readonly RecommendationPriorityCodingCodeConverter Singleton = new RecommendationPriorityCodingCodeConverter();
+        public static readonly RecommendationPriorityCodingCodeConverter Singleton =
+            new RecommendationPriorityCodingCodeConverter();
     }
 
     internal class MtbMedicationRecommendationUseTypeCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbMedicationRecommendationUseTypeCodingCode) || t == typeof(MtbMedicationRecommendationUseTypeCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbMedicationRecommendationUseTypeCodingCode) ||
+                                                   t == typeof(MtbMedicationRecommendationUseTypeCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2715,6 +3176,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return MtbMedicationRecommendationUseTypeCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type MtbMedicationRecommendationUseTypeCodingCode");
         }
 
@@ -2725,6 +3187,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbMedicationRecommendationUseTypeCodingCode)untypedValue;
             switch (value)
             {
@@ -2744,15 +3207,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbMedicationRecommendationUseTypeCodingCode");
         }
 
-        public static readonly MtbMedicationRecommendationUseTypeCodingCodeConverter Singleton = new MtbMedicationRecommendationUseTypeCodingCodeConverter();
+        public static readonly MtbMedicationRecommendationUseTypeCodingCodeConverter Singleton =
+            new MtbMedicationRecommendationUseTypeCodingCodeConverter();
     }
 
     internal class NoSequencingPerformedReasonCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(NoSequencingPerformedReasonCode) || t == typeof(NoSequencingPerformedReasonCode?);
+        public override bool CanConvert(Type t) => t == typeof(NoSequencingPerformedReasonCode) ||
+                                                   t == typeof(NoSequencingPerformedReasonCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2771,6 +3237,7 @@ namespace MV64e.MTB
                 case "targeted-diagnostics-recommended":
                     return NoSequencingPerformedReasonCode.TargetedDiagnosticsRecommended;
             }
+
             throw new Exception("Cannot unmarshal type NoSequencingPerformedReasonCode");
         }
 
@@ -2781,6 +3248,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (NoSequencingPerformedReasonCode)untypedValue;
             switch (value)
             {
@@ -2800,15 +3268,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "targeted-diagnostics-recommended");
                     return;
             }
+
             throw new Exception("Cannot marshal type NoSequencingPerformedReasonCode");
         }
 
-        public static readonly NoSequencingPerformedReasonCodeConverter Singleton = new NoSequencingPerformedReasonCodeConverter();
+        public static readonly NoSequencingPerformedReasonCodeConverter Singleton =
+            new NoSequencingPerformedReasonCodeConverter();
     }
 
     internal class MtbProcedureRecommendationCategoryCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbProcedureRecommendationCategoryCodingCode) || t == typeof(MtbProcedureRecommendationCategoryCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbProcedureRecommendationCategoryCodingCode) ||
+                                                   t == typeof(MtbProcedureRecommendationCategoryCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2829,6 +3300,7 @@ namespace MV64e.MTB
                 case "WW":
                     return MtbProcedureRecommendationCategoryCodingCode.Ww;
             }
+
             throw new Exception("Cannot unmarshal type MtbProcedureRecommendationCategoryCodingCode");
         }
 
@@ -2839,6 +3311,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbProcedureRecommendationCategoryCodingCode)untypedValue;
             switch (value)
             {
@@ -2861,15 +3334,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "WW");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbProcedureRecommendationCategoryCodingCode");
         }
 
-        public static readonly MtbProcedureRecommendationCategoryCodingCodeConverter Singleton = new MtbProcedureRecommendationCategoryCodingCodeConverter();
+        public static readonly MtbProcedureRecommendationCategoryCodingCodeConverter Singleton =
+            new MtbProcedureRecommendationCategoryCodingCodeConverter();
     }
 
     internal class MtbCarePlanRecommendationsMissingReasonCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbCarePlanRecommendationsMissingReasonCodingCode) || t == typeof(MtbCarePlanRecommendationsMissingReasonCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbCarePlanRecommendationsMissingReasonCodingCode) ||
+                                                   t == typeof(MtbCarePlanRecommendationsMissingReasonCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2879,6 +3355,7 @@ namespace MV64e.MTB
             {
                 return MtbCarePlanRecommendationsMissingReasonCodingCode.NoTarget;
             }
+
             throw new Exception("Cannot unmarshal type MtbCarePlanRecommendationsMissingReasonCodingCode");
         }
 
@@ -2889,16 +3366,19 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbCarePlanRecommendationsMissingReasonCodingCode)untypedValue;
             if (value == MtbCarePlanRecommendationsMissingReasonCodingCode.NoTarget)
             {
                 serializer.Serialize(writer, "no-target");
                 return;
             }
+
             throw new Exception("Cannot marshal type MtbCarePlanRecommendationsMissingReasonCodingCode");
         }
 
-        public static readonly MtbCarePlanRecommendationsMissingReasonCodingCodeConverter Singleton = new MtbCarePlanRecommendationsMissingReasonCodingCodeConverter();
+        public static readonly MtbCarePlanRecommendationsMissingReasonCodingCodeConverter Singleton =
+            new MtbCarePlanRecommendationsMissingReasonCodingCodeConverter();
     }
 
     internal class StudySystemConverter : JsonConverter
@@ -2920,6 +3400,7 @@ namespace MV64e.MTB
                 case "NCT":
                     return StudySystem.Nct;
             }
+
             throw new Exception("Cannot unmarshal type StudySystem");
         }
 
@@ -2930,6 +3411,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (StudySystem)untypedValue;
             switch (value)
             {
@@ -2946,6 +3428,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "NCT");
                     return;
             }
+
             throw new Exception("Cannot marshal type StudySystem");
         }
 
@@ -2954,7 +3437,8 @@ namespace MV64e.MTB
 
     internal class ClaimResponseStatusCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ClaimResponseStatusCodingCode) || t == typeof(ClaimResponseStatusCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(ClaimResponseStatusCodingCode) || t == typeof(ClaimResponseStatusCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -2969,6 +3453,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return ClaimResponseStatusCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type ClaimResponseStatusCodingCode");
         }
 
@@ -2979,6 +3464,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ClaimResponseStatusCodingCode)untypedValue;
             switch (value)
             {
@@ -2992,15 +3478,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type ClaimResponseStatusCodingCode");
         }
 
-        public static readonly ClaimResponseStatusCodingCodeConverter Singleton = new ClaimResponseStatusCodingCodeConverter();
+        public static readonly ClaimResponseStatusCodingCodeConverter Singleton =
+            new ClaimResponseStatusCodingCodeConverter();
     }
 
     internal class ClaimResponseStatusReasonCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ClaimResponseStatusReasonCodingCode) || t == typeof(ClaimResponseStatusReasonCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(ClaimResponseStatusReasonCodingCode) ||
+                                                   t == typeof(ClaimResponseStatusReasonCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3025,6 +3514,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return ClaimResponseStatusReasonCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type ClaimResponseStatusReasonCodingCode");
         }
 
@@ -3035,6 +3525,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ClaimResponseStatusReasonCodingCode)untypedValue;
             switch (value)
             {
@@ -3063,15 +3554,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type ClaimResponseStatusReasonCodingCode");
         }
 
-        public static readonly ClaimResponseStatusReasonCodingCodeConverter Singleton = new ClaimResponseStatusReasonCodingCodeConverter();
+        public static readonly ClaimResponseStatusReasonCodingCodeConverter Singleton =
+            new ClaimResponseStatusReasonCodingCodeConverter();
     }
 
     internal class ClaimStageCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ClaimStageCodingCode) || t == typeof(ClaimStageCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(ClaimStageCodingCode) || t == typeof(ClaimStageCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3088,6 +3582,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return ClaimStageCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type ClaimStageCodingCode");
         }
 
@@ -3098,6 +3593,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ClaimStageCodingCode)untypedValue;
             switch (value)
             {
@@ -3114,6 +3610,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type ClaimStageCodingCode");
         }
 
@@ -3122,7 +3619,8 @@ namespace MV64e.MTB
 
     internal class MtbDiagnosisGuidelineTreatmentStatusCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbDiagnosisGuidelineTreatmentStatusCodingCode) || t == typeof(MtbDiagnosisGuidelineTreatmentStatusCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbDiagnosisGuidelineTreatmentStatusCodingCode) ||
+                                                   t == typeof(MtbDiagnosisGuidelineTreatmentStatusCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3141,6 +3639,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return MtbDiagnosisGuidelineTreatmentStatusCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type MtbDiagnosisGuidelineTreatmentStatusCodingCode");
         }
 
@@ -3151,6 +3650,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbDiagnosisGuidelineTreatmentStatusCodingCode)untypedValue;
             switch (value)
             {
@@ -3170,15 +3670,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbDiagnosisGuidelineTreatmentStatusCodingCode");
         }
 
-        public static readonly MtbDiagnosisGuidelineTreatmentStatusCodingCodeConverter Singleton = new MtbDiagnosisGuidelineTreatmentStatusCodingCodeConverter();
+        public static readonly MtbDiagnosisGuidelineTreatmentStatusCodingCodeConverter Singleton =
+            new MtbDiagnosisGuidelineTreatmentStatusCodingCodeConverter();
     }
 
     internal class TumorStagingMethodCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TumorStagingMethodCodingCode) || t == typeof(TumorStagingMethodCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(TumorStagingMethodCodingCode) || t == typeof(TumorStagingMethodCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3191,6 +3694,7 @@ namespace MV64e.MTB
                 case "pathologic":
                     return TumorStagingMethodCodingCode.Pathologic;
             }
+
             throw new Exception("Cannot unmarshal type TumorStagingMethodCodingCode");
         }
 
@@ -3201,6 +3705,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TumorStagingMethodCodingCode)untypedValue;
             switch (value)
             {
@@ -3211,10 +3716,12 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "pathologic");
                     return;
             }
+
             throw new Exception("Cannot marshal type TumorStagingMethodCodingCode");
         }
 
-        public static readonly TumorStagingMethodCodingCodeConverter Singleton = new TumorStagingMethodCodingCodeConverter();
+        public static readonly TumorStagingMethodCodingCodeConverter Singleton =
+            new TumorStagingMethodCodingCodeConverter();
     }
 
     internal class ValueCodeConverter : JsonConverter
@@ -3234,6 +3741,7 @@ namespace MV64e.MTB
                 case "secondary":
                     return ValueCode.Secondary;
             }
+
             throw new Exception("Cannot unmarshal type ValueCode");
         }
 
@@ -3244,6 +3752,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ValueCode)untypedValue;
             switch (value)
             {
@@ -3257,6 +3766,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "secondary");
                     return;
             }
+
             throw new Exception("Cannot marshal type ValueCode");
         }
 
@@ -3265,7 +3775,8 @@ namespace MV64e.MTB
 
     internal class FamilyMemberHistoryRelationshipTypeCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(FamilyMemberHistoryRelationshipTypeCodingCode) || t == typeof(FamilyMemberHistoryRelationshipTypeCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(FamilyMemberHistoryRelationshipTypeCodingCode) ||
+                                                   t == typeof(FamilyMemberHistoryRelationshipTypeCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3278,6 +3789,7 @@ namespace MV64e.MTB
                 case "FAMMEMB":
                     return FamilyMemberHistoryRelationshipTypeCodingCode.Fammemb;
             }
+
             throw new Exception("Cannot unmarshal type FamilyMemberHistoryRelationshipTypeCodingCode");
         }
 
@@ -3288,6 +3800,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (FamilyMemberHistoryRelationshipTypeCodingCode)untypedValue;
             switch (value)
             {
@@ -3298,15 +3811,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "FAMMEMB");
                     return;
             }
+
             throw new Exception("Cannot marshal type FamilyMemberHistoryRelationshipTypeCodingCode");
         }
 
-        public static readonly FamilyMemberHistoryRelationshipTypeCodingCodeConverter Singleton = new FamilyMemberHistoryRelationshipTypeCodingCodeConverter();
+        public static readonly FamilyMemberHistoryRelationshipTypeCodingCodeConverter Singleton =
+            new FamilyMemberHistoryRelationshipTypeCodingCodeConverter();
     }
 
     internal class FollowUpPatientStatusCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(FollowUpPatientStatusCodingCode) || t == typeof(FollowUpPatientStatusCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(FollowUpPatientStatusCodingCode) ||
+                                                   t == typeof(FollowUpPatientStatusCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3316,6 +3832,7 @@ namespace MV64e.MTB
             {
                 return FollowUpPatientStatusCodingCode.LostToFu;
             }
+
             throw new Exception("Cannot unmarshal type FollowUpPatientStatusCodingCode");
         }
 
@@ -3326,21 +3843,25 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (FollowUpPatientStatusCodingCode)untypedValue;
             if (value == FollowUpPatientStatusCodingCode.LostToFu)
             {
                 serializer.Serialize(writer, "lost-to-fu");
                 return;
             }
+
             throw new Exception("Cannot marshal type FollowUpPatientStatusCodingCode");
         }
 
-        public static readonly FollowUpPatientStatusCodingCodeConverter Singleton = new FollowUpPatientStatusCodingCodeConverter();
+        public static readonly FollowUpPatientStatusCodingCodeConverter Singleton =
+            new FollowUpPatientStatusCodingCodeConverter();
     }
 
     internal class OncoProcedureCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(OncoProcedureCodingCode) || t == typeof(OncoProcedureCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(OncoProcedureCodingCode) || t == typeof(OncoProcedureCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3355,6 +3876,7 @@ namespace MV64e.MTB
                 case "surgery":
                     return OncoProcedureCodingCode.Surgery;
             }
+
             throw new Exception("Cannot unmarshal type OncoProcedureCodingCode");
         }
 
@@ -3365,6 +3887,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (OncoProcedureCodingCode)untypedValue;
             switch (value)
             {
@@ -3378,6 +3901,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "surgery");
                     return;
             }
+
             throw new Exception("Cannot marshal type OncoProcedureCodingCode");
         }
 
@@ -3386,7 +3910,8 @@ namespace MV64e.MTB
 
     internal class MtbTherapyIntentCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbTherapyIntentCodingCode) || t == typeof(MtbTherapyIntentCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(MtbTherapyIntentCodingCode) || t == typeof(MtbTherapyIntentCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3403,6 +3928,7 @@ namespace MV64e.MTB
                 case "X":
                     return MtbTherapyIntentCodingCode.X;
             }
+
             throw new Exception("Cannot unmarshal type MtbTherapyIntentCodingCode");
         }
 
@@ -3413,6 +3939,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbTherapyIntentCodingCode)untypedValue;
             switch (value)
             {
@@ -3429,15 +3956,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "X");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbTherapyIntentCodingCode");
         }
 
-        public static readonly MtbTherapyIntentCodingCodeConverter Singleton = new MtbTherapyIntentCodingCodeConverter();
+        public static readonly MtbTherapyIntentCodingCodeConverter
+            Singleton = new MtbTherapyIntentCodingCodeConverter();
     }
 
     internal class TherapyStatusCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TherapyStatusCodingCode) || t == typeof(TherapyStatusCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(TherapyStatusCodingCode) || t == typeof(TherapyStatusCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3456,6 +3986,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return TherapyStatusCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type TherapyStatusCodingCode");
         }
 
@@ -3466,6 +3997,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TherapyStatusCodingCode)untypedValue;
             switch (value)
             {
@@ -3485,6 +4017,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type TherapyStatusCodingCode");
         }
 
@@ -3493,7 +4026,8 @@ namespace MV64e.MTB
 
     internal class MtbTherapyStatusReasonCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbTherapyStatusReasonCodingCode) || t == typeof(MtbTherapyStatusReasonCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbTherapyStatusReasonCodingCode) ||
+                                                   t == typeof(MtbTherapyStatusReasonCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3540,6 +4074,7 @@ namespace MV64e.MTB
                 case "toxicity":
                     return MtbTherapyStatusReasonCodingCode.Toxicity;
             }
+
             throw new Exception("Cannot unmarshal type MtbTherapyStatusReasonCodingCode");
         }
 
@@ -3550,6 +4085,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbTherapyStatusReasonCodingCode)untypedValue;
             switch (value)
             {
@@ -3611,15 +4147,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "toxicity");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbTherapyStatusReasonCodingCode");
         }
 
-        public static readonly MtbTherapyStatusReasonCodingCodeConverter Singleton = new MtbTherapyStatusReasonCodingCodeConverter();
+        public static readonly MtbTherapyStatusReasonCodingCodeConverter Singleton =
+            new MtbTherapyStatusReasonCodingCodeConverter();
     }
 
     internal class MtbSystemicTherapyCategoryCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbSystemicTherapyCategoryCodingCode) || t == typeof(MtbSystemicTherapyCategoryCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbSystemicTherapyCategoryCodingCode) ||
+                                                   t == typeof(MtbSystemicTherapyCategoryCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3638,6 +4177,7 @@ namespace MV64e.MTB
                 case "S":
                     return MtbSystemicTherapyCategoryCodingCode.S;
             }
+
             throw new Exception("Cannot unmarshal type MtbSystemicTherapyCategoryCodingCode");
         }
 
@@ -3648,6 +4188,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbSystemicTherapyCategoryCodingCode)untypedValue;
             switch (value)
             {
@@ -3667,15 +4208,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "S");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbSystemicTherapyCategoryCodingCode");
         }
 
-        public static readonly MtbSystemicTherapyCategoryCodingCodeConverter Singleton = new MtbSystemicTherapyCategoryCodingCodeConverter();
+        public static readonly MtbSystemicTherapyCategoryCodingCodeConverter Singleton =
+            new MtbSystemicTherapyCategoryCodingCodeConverter();
     }
 
     internal class MtbSystemicTherapyDosageDensityCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbSystemicTherapyDosageDensityCodingCode) || t == typeof(MtbSystemicTherapyDosageDensityCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MtbSystemicTherapyDosageDensityCodingCode) ||
+                                                   t == typeof(MtbSystemicTherapyDosageDensityCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3688,6 +4232,7 @@ namespace MV64e.MTB
                 case "under-50%":
                     return MtbSystemicTherapyDosageDensityCodingCode.Under50;
             }
+
             throw new Exception("Cannot unmarshal type MtbSystemicTherapyDosageDensityCodingCode");
         }
 
@@ -3698,6 +4243,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbSystemicTherapyDosageDensityCodingCode)untypedValue;
             switch (value)
             {
@@ -3708,15 +4254,19 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "under-50%");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbSystemicTherapyDosageDensityCodingCode");
         }
 
-        public static readonly MtbSystemicTherapyDosageDensityCodingCodeConverter Singleton = new MtbSystemicTherapyDosageDensityCodingCodeConverter();
+        public static readonly MtbSystemicTherapyDosageDensityCodingCodeConverter Singleton =
+            new MtbSystemicTherapyDosageDensityCodingCodeConverter();
     }
 
     internal class MtbSystemicTherapyRecommendationFulfillmentStatusCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode) || t == typeof(MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode) ||
+            t == typeof(MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3729,6 +4279,7 @@ namespace MV64e.MTB
                 case "partial":
                     return MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode.Partial;
             }
+
             throw new Exception("Cannot unmarshal type MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode");
         }
 
@@ -3739,6 +4290,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode)untypedValue;
             switch (value)
             {
@@ -3749,15 +4301,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "partial");
                     return;
             }
+
             throw new Exception("Cannot marshal type MtbSystemicTherapyRecommendationFulfillmentStatusCodingCode");
         }
 
-        public static readonly MtbSystemicTherapyRecommendationFulfillmentStatusCodingCodeConverter Singleton = new MtbSystemicTherapyRecommendationFulfillmentStatusCodingCodeConverter();
+        public static readonly MtbSystemicTherapyRecommendationFulfillmentStatusCodingCodeConverter Singleton =
+            new MtbSystemicTherapyRecommendationFulfillmentStatusCodingCodeConverter();
     }
 
     internal class TumorCellContentMethodCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TumorCellContentMethodCodingCode) || t == typeof(TumorCellContentMethodCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(TumorCellContentMethodCodingCode) ||
+                                                   t == typeof(TumorCellContentMethodCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3770,6 +4325,7 @@ namespace MV64e.MTB
                 case "histologic":
                     return TumorCellContentMethodCodingCode.Histologic;
             }
+
             throw new Exception("Cannot unmarshal type TumorCellContentMethodCodingCode");
         }
 
@@ -3780,6 +4336,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TumorCellContentMethodCodingCode)untypedValue;
             switch (value)
             {
@@ -3790,15 +4347,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "histologic");
                     return;
             }
+
             throw new Exception("Cannot marshal type TumorCellContentMethodCodingCode");
         }
 
-        public static readonly TumorCellContentMethodCodingCodeConverter Singleton = new TumorCellContentMethodCodingCodeConverter();
+        public static readonly TumorCellContentMethodCodingCodeConverter Singleton =
+            new TumorCellContentMethodCodingCodeConverter();
     }
 
     internal class ProteinExpressionIcScoreCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ProteinExpressionIcScoreCodingCode) || t == typeof(ProteinExpressionIcScoreCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(ProteinExpressionIcScoreCodingCode) ||
+                                                   t == typeof(ProteinExpressionIcScoreCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3815,6 +4375,7 @@ namespace MV64e.MTB
                 case "3":
                     return ProteinExpressionIcScoreCodingCode.Code3;
             }
+
             throw new Exception("Cannot unmarshal type ProteinExpressionIcScoreCodingCode");
         }
 
@@ -3825,6 +4386,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ProteinExpressionIcScoreCodingCode)untypedValue;
             switch (value)
             {
@@ -3841,15 +4403,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "3");
                     return;
             }
+
             throw new Exception("Cannot marshal type ProteinExpressionIcScoreCodingCode");
         }
 
-        public static readonly ProteinExpressionIcScoreCodingCodeConverter Singleton = new ProteinExpressionIcScoreCodingCodeConverter();
+        public static readonly ProteinExpressionIcScoreCodingCodeConverter Singleton =
+            new ProteinExpressionIcScoreCodingCodeConverter();
     }
 
     internal class ProteinExpressionTcScoreCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ProteinExpressionTcScoreCodingCode) || t == typeof(ProteinExpressionTcScoreCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(ProteinExpressionTcScoreCodingCode) ||
+                                                   t == typeof(ProteinExpressionTcScoreCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3872,6 +4437,7 @@ namespace MV64e.MTB
                 case "6":
                     return ProteinExpressionTcScoreCodingCode.Code6;
             }
+
             throw new Exception("Cannot unmarshal type ProteinExpressionTcScoreCodingCode");
         }
 
@@ -3882,6 +4448,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ProteinExpressionTcScoreCodingCode)untypedValue;
             switch (value)
             {
@@ -3907,15 +4474,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "6");
                     return;
             }
+
             throw new Exception("Cannot marshal type ProteinExpressionTcScoreCodingCode");
         }
 
-        public static readonly ProteinExpressionTcScoreCodingCodeConverter Singleton = new ProteinExpressionTcScoreCodingCodeConverter();
+        public static readonly ProteinExpressionTcScoreCodingCodeConverter Singleton =
+            new ProteinExpressionTcScoreCodingCodeConverter();
     }
 
     internal class ProteinExpressionResultCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ProteinExpressionResultCodingCode) || t == typeof(ProteinExpressionResultCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(ProteinExpressionResultCodingCode) ||
+                                                   t == typeof(ProteinExpressionResultCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3936,6 +4506,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return ProteinExpressionResultCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type ProteinExpressionResultCodingCode");
         }
 
@@ -3946,6 +4517,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ProteinExpressionResultCodingCode)untypedValue;
             switch (value)
             {
@@ -3968,15 +4540,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type ProteinExpressionResultCodingCode");
         }
 
-        public static readonly ProteinExpressionResultCodingCodeConverter Singleton = new ProteinExpressionResultCodingCodeConverter();
+        public static readonly ProteinExpressionResultCodingCodeConverter Singleton =
+            new ProteinExpressionResultCodingCodeConverter();
     }
 
     internal class ModelProjectConsentPurposeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ModelProjectConsentPurpose) || t == typeof(ModelProjectConsentPurpose?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(ModelProjectConsentPurpose) || t == typeof(ModelProjectConsentPurpose?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -3991,6 +4566,7 @@ namespace MV64e.MTB
                 case "sequencing":
                     return ModelProjectConsentPurpose.Sequencing;
             }
+
             throw new Exception("Cannot unmarshal type ModelProjectConsentPurpose");
         }
 
@@ -4001,6 +4577,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ModelProjectConsentPurpose)untypedValue;
             switch (value)
             {
@@ -4014,10 +4591,12 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "sequencing");
                     return;
             }
+
             throw new Exception("Cannot marshal type ModelProjectConsentPurpose");
         }
 
-        public static readonly ModelProjectConsentPurposeConverter Singleton = new ModelProjectConsentPurposeConverter();
+        public static readonly ModelProjectConsentPurposeConverter
+            Singleton = new ModelProjectConsentPurposeConverter();
     }
 
     internal class ConsentProvisionConverter : JsonConverter
@@ -4035,6 +4614,7 @@ namespace MV64e.MTB
                 case "permit":
                     return ConsentProvision.Permit;
             }
+
             throw new Exception("Cannot unmarshal type ConsentProvision");
         }
 
@@ -4045,6 +4625,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ConsentProvision)untypedValue;
             switch (value)
             {
@@ -4055,6 +4636,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "permit");
                     return;
             }
+
             throw new Exception("Cannot marshal type ConsentProvision");
         }
 
@@ -4082,6 +4664,7 @@ namespace MV64e.MTB
                 case "test":
                     return MvhSubmissionType.Test;
             }
+
             throw new Exception("Cannot unmarshal type MvhSubmissionType");
         }
 
@@ -4092,6 +4675,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MvhSubmissionType)untypedValue;
             switch (value)
             {
@@ -4111,15 +4695,17 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "test");
                     return;
             }
+
             throw new Exception("Cannot marshal type MvhSubmissionType");
         }
 
         public static readonly MvhSubmissionTypeConverter Singleton = new MvhSubmissionTypeConverter();
     }
 
-        internal class MsiInterpretationCodingCodeConverter : JsonConverter
+    internal class MsiInterpretationCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MsiInterpretationCodingCode) || t == typeof(MsiInterpretationCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(MsiInterpretationCodingCode) || t == typeof(MsiInterpretationCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -4140,6 +4726,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return MsiInterpretationCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type MsiInterpretationCodingCode");
         }
 
@@ -4150,6 +4737,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MsiInterpretationCodingCode)untypedValue;
             switch (value)
             {
@@ -4172,15 +4760,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type MsiInterpretationCodingCode");
         }
 
-        public static readonly MsiInterpretationCodingCodeConverter Singleton = new MsiInterpretationCodingCodeConverter();
+        public static readonly MsiInterpretationCodingCodeConverter Singleton =
+            new MsiInterpretationCodingCodeConverter();
     }
 
     internal class MsiMethodCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MsiMethodCodingCode) || t == typeof(MsiMethodCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(MsiMethodCodingCode) || t == typeof(MsiMethodCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -4195,6 +4786,7 @@ namespace MV64e.MTB
                 case "bioinformatic":
                     return MsiMethodCodingCode.Bioinformatic;
             }
+
             throw new Exception("Cannot unmarshal type MsiMethodCodingCode");
         }
 
@@ -4205,6 +4797,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MsiMethodCodingCode)untypedValue;
             switch (value)
             {
@@ -4218,6 +4811,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "bioinformatic");
                     return;
             }
+
             throw new Exception("Cannot marshal type MsiMethodCodingCode");
         }
 
@@ -4285,6 +4879,7 @@ namespace MV64e.MTB
                 case "chrMT":
                     return Chromosome.ChrMt;
             }
+
             throw new Exception("Cannot unmarshal type Chromosome");
         }
 
@@ -4295,6 +4890,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (Chromosome)untypedValue;
             switch (value)
             {
@@ -4374,6 +4970,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "chrMT");
                     return;
             }
+
             throw new Exception("Cannot marshal type Chromosome");
         }
 
@@ -4399,6 +4996,7 @@ namespace MV64e.MTB
                 case "https://www.ncbi.nlm.nih.gov/snp":
                     return ExternalIdSystem.NcbiNlmNihGovSnp;
             }
+
             throw new Exception("Cannot unmarshal type ExternalIdSystem");
         }
 
@@ -4409,6 +5007,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ExternalIdSystem)untypedValue;
             switch (value)
             {
@@ -4425,6 +5024,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "https://www.ncbi.nlm.nih.gov/snp");
                     return;
             }
+
             throw new Exception("Cannot marshal type ExternalIdSystem");
         }
 
@@ -4433,7 +5033,8 @@ namespace MV64e.MTB
 
     internal class BaseVariantLocalizationCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(BaseVariantLocalizationCodingCode) || t == typeof(BaseVariantLocalizationCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(BaseVariantLocalizationCodingCode) ||
+                                                   t == typeof(BaseVariantLocalizationCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -4452,6 +5053,7 @@ namespace MV64e.MTB
                 case "splicing-region":
                     return BaseVariantLocalizationCodingCode.SplicingRegion;
             }
+
             throw new Exception("Cannot unmarshal type BaseVariantLocalizationCodingCode");
         }
 
@@ -4462,6 +5064,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (BaseVariantLocalizationCodingCode)untypedValue;
             switch (value)
             {
@@ -4481,10 +5084,12 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "splicing-region");
                     return;
             }
+
             throw new Exception("Cannot marshal type BaseVariantLocalizationCodingCode");
         }
 
-        public static readonly BaseVariantLocalizationCodingCodeConverter Singleton = new BaseVariantLocalizationCodingCodeConverter();
+        public static readonly BaseVariantLocalizationCodingCodeConverter Singleton =
+            new BaseVariantLocalizationCodingCodeConverter();
     }
 
     internal class CnvCodingCodeConverter : JsonConverter
@@ -4504,6 +5109,7 @@ namespace MV64e.MTB
                 case "low-level-gain":
                     return CnvCodingCode.LowLevelGain;
             }
+
             throw new Exception("Cannot unmarshal type CnvCodingCode");
         }
 
@@ -4514,6 +5120,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (CnvCodingCode)untypedValue;
             switch (value)
             {
@@ -4527,6 +5134,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "low-level-gain");
                     return;
             }
+
             throw new Exception("Cannot marshal type CnvCodingCode");
         }
 
@@ -4535,7 +5143,8 @@ namespace MV64e.MTB
 
     internal class InterpretationCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(InterpretationCodingCode) || t == typeof(InterpretationCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(InterpretationCodingCode) || t == typeof(InterpretationCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -4550,6 +5159,7 @@ namespace MV64e.MTB
                 case "low":
                     return InterpretationCodingCode.Low;
             }
+
             throw new Exception("Cannot unmarshal type InterpretationCodingCode");
         }
 
@@ -4560,6 +5170,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (InterpretationCodingCode)untypedValue;
             switch (value)
             {
@@ -4573,6 +5184,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "low");
                     return;
             }
+
             throw new Exception("Cannot marshal type InterpretationCodingCode");
         }
 
@@ -4594,6 +5206,7 @@ namespace MV64e.MTB
                 case "-":
                     return RnaFusionStrand.RnaFusionStrand;
             }
+
             throw new Exception("Cannot unmarshal type RnaFusionStrand");
         }
 
@@ -4604,6 +5217,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (RnaFusionStrand)untypedValue;
             switch (value)
             {
@@ -4614,6 +5228,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "-");
                     return;
             }
+
             throw new Exception("Cannot marshal type RnaFusionStrand");
         }
 
@@ -4635,6 +5250,7 @@ namespace MV64e.MTB
                 case "https://www.ncbi.nlm.nih.gov/refseq":
                     return TranscriptIdSystem.NcbiNlmNihGovRefseq;
             }
+
             throw new Exception("Cannot unmarshal type TranscriptIdSystem");
         }
 
@@ -4645,6 +5261,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TranscriptIdSystem)untypedValue;
             switch (value)
             {
@@ -4655,6 +5272,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "https://www.ncbi.nlm.nih.gov/refseq");
                     return;
             }
+
             throw new Exception("Cannot marshal type TranscriptIdSystem");
         }
 
@@ -4682,6 +5300,7 @@ namespace MV64e.MTB
                 case "5":
                     return ClinVarCodingCode.Code5;
             }
+
             throw new Exception("Cannot unmarshal type ClinVarCodingCode");
         }
 
@@ -4692,6 +5311,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ClinVarCodingCode)untypedValue;
             switch (value)
             {
@@ -4711,6 +5331,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "5");
                     return;
             }
+
             throw new Exception("Cannot marshal type ClinVarCodingCode");
         }
 
@@ -4719,7 +5340,8 @@ namespace MV64e.MTB
 
     internal class NgsReportCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(NgsReportCodingCode) || t == typeof(NgsReportCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(NgsReportCodingCode) || t == typeof(NgsReportCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -4744,6 +5366,7 @@ namespace MV64e.MTB
                 case "single":
                     return NgsReportCodingCode.Single;
             }
+
             throw new Exception("Cannot unmarshal type NgsReportCodingCode");
         }
 
@@ -4754,6 +5377,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (NgsReportCodingCode)untypedValue;
             switch (value)
             {
@@ -4782,6 +5406,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "single");
                     return;
             }
+
             throw new Exception("Cannot marshal type NgsReportCodingCode");
         }
 
@@ -4803,6 +5428,7 @@ namespace MV64e.MTB
                 case "Years":
                     return Unit.Years;
             }
+
             throw new Exception("Cannot unmarshal type Unit");
         }
 
@@ -4813,6 +5439,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (Unit)untypedValue;
             switch (value)
             {
@@ -4823,6 +5450,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "Years");
                     return;
             }
+
             throw new Exception("Cannot marshal type Unit");
         }
 
@@ -4848,6 +5476,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return GenderCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type GenderCodingCode");
         }
 
@@ -4858,6 +5487,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (GenderCodingCode)untypedValue;
             switch (value)
             {
@@ -4874,6 +5504,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type GenderCodingCode");
         }
 
@@ -4882,7 +5513,8 @@ namespace MV64e.MTB
 
     internal class HealthInsuranceCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(HealthInsuranceCodingCode) || t == typeof(HealthInsuranceCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(HealthInsuranceCodingCode) || t == typeof(HealthInsuranceCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -4911,6 +5543,7 @@ namespace MV64e.MTB
                 case "UNK":
                     return HealthInsuranceCodingCode.Unk;
             }
+
             throw new Exception("Cannot unmarshal type HealthInsuranceCodingCode");
         }
 
@@ -4921,6 +5554,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (HealthInsuranceCodingCode)untypedValue;
             switch (value)
             {
@@ -4955,6 +5589,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "UNK");
                     return;
             }
+
             throw new Exception("Cannot marshal type HealthInsuranceCodingCode");
         }
 
@@ -4963,7 +5598,8 @@ namespace MV64e.MTB
 
     internal class VitalStatusCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(VitalStatusCodingCode) || t == typeof(VitalStatusCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(VitalStatusCodingCode) || t == typeof(VitalStatusCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -4976,6 +5612,7 @@ namespace MV64e.MTB
                 case "deceased":
                     return VitalStatusCodingCode.Deceased;
             }
+
             throw new Exception("Cannot unmarshal type VitalStatusCodingCode");
         }
 
@@ -4986,6 +5623,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (VitalStatusCodingCode)untypedValue;
             switch (value)
             {
@@ -4996,6 +5634,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "deceased");
                     return;
             }
+
             throw new Exception("Cannot marshal type VitalStatusCodingCode");
         }
 
@@ -5025,6 +5664,7 @@ namespace MV64e.MTB
                 case "5":
                     return EcogCodingCode.Code5;
             }
+
             throw new Exception("Cannot unmarshal type EcogCodingCode");
         }
 
@@ -5035,6 +5675,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (EcogCodingCode)untypedValue;
             switch (value)
             {
@@ -5057,6 +5698,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "5");
                     return;
             }
+
             throw new Exception("Cannot marshal type EcogCodingCode");
         }
 
@@ -5065,7 +5707,8 @@ namespace MV64e.MTB
 
     internal class MolecularDiagnosticReportCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(MolecularDiagnosticReportCodingCode) || t == typeof(MolecularDiagnosticReportCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(MolecularDiagnosticReportCodingCode) ||
+                                                   t == typeof(MolecularDiagnosticReportCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -5098,6 +5741,7 @@ namespace MV64e.MTB
                 case "single":
                     return MolecularDiagnosticReportCodingCode.Single;
             }
+
             throw new Exception("Cannot unmarshal type MolecularDiagnosticReportCodingCode");
         }
 
@@ -5108,6 +5752,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (MolecularDiagnosticReportCodingCode)untypedValue;
             switch (value)
             {
@@ -5148,15 +5793,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "single");
                     return;
             }
+
             throw new Exception("Cannot marshal type MolecularDiagnosticReportCodingCode");
         }
 
-        public static readonly MolecularDiagnosticReportCodingCodeConverter Singleton = new MolecularDiagnosticReportCodingCodeConverter();
+        public static readonly MolecularDiagnosticReportCodingCodeConverter Singleton =
+            new MolecularDiagnosticReportCodingCodeConverter();
     }
 
     internal class ResponseMethodCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(ResponseMethodCodingCode) || t == typeof(ResponseMethodCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(ResponseMethodCodingCode) || t == typeof(ResponseMethodCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -5169,6 +5817,7 @@ namespace MV64e.MTB
                 case "RECIST":
                     return ResponseMethodCodingCode.Recist;
             }
+
             throw new Exception("Cannot unmarshal type ResponseMethodCodingCode");
         }
 
@@ -5179,6 +5828,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (ResponseMethodCodingCode)untypedValue;
             switch (value)
             {
@@ -5189,6 +5839,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "RECIST");
                     return;
             }
+
             throw new Exception("Cannot marshal type ResponseMethodCodingCode");
         }
 
@@ -5218,6 +5869,7 @@ namespace MV64e.MTB
                 case "SD":
                     return RecistCodingCode.Sd;
             }
+
             throw new Exception("Cannot unmarshal type RecistCodingCode");
         }
 
@@ -5228,6 +5880,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (RecistCodingCode)untypedValue;
             switch (value)
             {
@@ -5250,6 +5903,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "SD");
                     return;
             }
+
             throw new Exception("Cannot marshal type RecistCodingCode");
         }
 
@@ -5258,7 +5912,8 @@ namespace MV64e.MTB
 
     internal class TumorSpecimenCollectionLocalizationCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TumorSpecimenCollectionLocalizationCodingCode) || t == typeof(TumorSpecimenCollectionLocalizationCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(TumorSpecimenCollectionLocalizationCodingCode) ||
+                                                   t == typeof(TumorSpecimenCollectionLocalizationCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -5279,6 +5934,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return TumorSpecimenCollectionLocalizationCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type TumorSpecimenCollectionLocalizationCodingCode");
         }
 
@@ -5289,6 +5945,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TumorSpecimenCollectionLocalizationCodingCode)untypedValue;
             switch (value)
             {
@@ -5311,15 +5968,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type TumorSpecimenCollectionLocalizationCodingCode");
         }
 
-        public static readonly TumorSpecimenCollectionLocalizationCodingCodeConverter Singleton = new TumorSpecimenCollectionLocalizationCodingCodeConverter();
+        public static readonly TumorSpecimenCollectionLocalizationCodingCodeConverter Singleton =
+            new TumorSpecimenCollectionLocalizationCodingCodeConverter();
     }
 
     internal class TumorSpecimenCollectionMethodCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TumorSpecimenCollectionMethodCodingCode) || t == typeof(TumorSpecimenCollectionMethodCodingCode?);
+        public override bool CanConvert(Type t) => t == typeof(TumorSpecimenCollectionMethodCodingCode) ||
+                                                   t == typeof(TumorSpecimenCollectionMethodCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -5338,6 +5998,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return TumorSpecimenCollectionMethodCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type TumorSpecimenCollectionMethodCodingCode");
         }
 
@@ -5348,6 +6009,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TumorSpecimenCollectionMethodCodingCode)untypedValue;
             switch (value)
             {
@@ -5367,15 +6029,18 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type TumorSpecimenCollectionMethodCodingCode");
         }
 
-        public static readonly TumorSpecimenCollectionMethodCodingCodeConverter Singleton = new TumorSpecimenCollectionMethodCodingCodeConverter();
+        public static readonly TumorSpecimenCollectionMethodCodingCodeConverter Singleton =
+            new TumorSpecimenCollectionMethodCodingCodeConverter();
     }
 
     internal class TumorSpecimenCodingCodeConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TumorSpecimenCodingCode) || t == typeof(TumorSpecimenCodingCode?);
+        public override bool CanConvert(Type t) =>
+            t == typeof(TumorSpecimenCodingCode) || t == typeof(TumorSpecimenCodingCode?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -5394,6 +6059,7 @@ namespace MV64e.MTB
                 case "unknown":
                     return TumorSpecimenCodingCode.Unknown;
             }
+
             throw new Exception("Cannot unmarshal type TumorSpecimenCodingCode");
         }
 
@@ -5404,6 +6070,7 @@ namespace MV64e.MTB
                 serializer.Serialize(writer, null);
                 return;
             }
+
             var value = (TumorSpecimenCodingCode)untypedValue;
             switch (value)
             {
@@ -5423,6 +6090,7 @@ namespace MV64e.MTB
                     serializer.Serialize(writer, "unknown");
                     return;
             }
+
             throw new Exception("Cannot marshal type TumorSpecimenCodingCode");
         }
 
