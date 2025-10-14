@@ -1117,37 +1117,10 @@ namespace MV64e.MTB
     public partial class IhcReportResults
     {
         [JsonProperty("msiMmr", Required = Required.Always)]
-        public List<MsiMmr> MsiMmr { get; set; }
+        public List<ProteinExpression> MsiMmr { get; set; }
 
         [JsonProperty("proteinExpression", Required = Required.Always)]
         public List<ProteinExpression> ProteinExpression { get; set; }
-    }
-
-    public partial class MsiMmr
-    {
-        [JsonProperty("icScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public ProteinExpressionIcScoreCoding IcScore { get; set; }
-
-        [JsonProperty("id", Required = Required.Always)]
-        public string Id { get; set; }
-
-        [JsonProperty("patient", Required = Required.Always)]
-        public Reference Patient { get; set; }
-
-        [JsonProperty("protein", Required = Required.Always)]
-        public Coding Protein { get; set; }
-
-        [JsonProperty("tcScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public ProteinExpressionTcScoreCoding TcScore { get; set; }
-
-        [JsonProperty("tpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public long? TpsScore { get; set; }
-
-        [JsonProperty("cpsScore", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public long? CpsScore { get; set; }
-
-        [JsonProperty("value", Required = Required.Always)]
-        public ProteinExpressionResultCoding Value { get; set; }
     }
 
     public partial class ProteinExpressionIcScoreCoding
