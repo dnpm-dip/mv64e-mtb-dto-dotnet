@@ -1203,7 +1203,10 @@ namespace MV64e.MTB
         [JsonProperty("researchConsents", Required = Required.DisallowNull,
             NullValueHandling = NullValueHandling.Ignore)]
         public List<Dictionary<string, object>> ResearchConsents { get; set; }
-
+        
+        [JsonProperty("reasonResearchConsentMissing", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        public ResearchConsentReasonMissing? ReasonResearchConsentMissing { get; set; }
+        
         [JsonProperty("transferTAN", Required = Required.Always)]
         public string TransferTan { get; set; }
 
@@ -2414,6 +2417,17 @@ namespace MV64e.MTB
         Permit
     };
 
+    public enum ResearchConsentReasonMissing
+    {
+        ConsentNotReturned, 
+        OrganizationalIssues, 
+        OtherPatientReason, 
+        PatientInability, 
+        PatientRefusal, 
+        TechnicalIssues
+    };
+
+
     public enum MvhSubmissionType
     {
         Addition,
@@ -2690,6 +2704,7 @@ namespace MV64e.MTB
                 ProteinExpressionResultCodingCodeConverter.Singleton,
                 ModelProjectConsentPurposeConverter.Singleton,
                 ConsentProvisionConverter.Singleton,
+                ResearchConsentReasonMissingConverter.Singleton,
                 MvhSubmissionTypeConverter.Singleton,
                 MsiInterpretationCodingCodeConverter.Singleton,
                 MsiMethodCodingCodeConverter.Singleton,
@@ -4618,6 +4633,67 @@ namespace MV64e.MTB
         }
 
         public static readonly ConsentProvisionConverter Singleton = new ConsentProvisionConverter();
+    }
+    
+    internal class ResearchConsentReasonMissingConverter : JsonConverter
+    {
+        public override bool CanConvert(Type t) => t == typeof(ResearchConsentReasonMissing) || t == typeof(ResearchConsentReasonMissing?);
+
+        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        {
+            if (reader.TokenType == JsonToken.Null) return null;
+            var value = serializer.Deserialize<string>(reader);
+            switch (value)
+            {
+                case "consent-not-returned":
+                    return ResearchConsentReasonMissing.ConsentNotReturned;
+                case "organizational-issues":
+                    return ResearchConsentReasonMissing.OrganizationalIssues;
+                case "other-patient-reason":
+                    return ResearchConsentReasonMissing.OtherPatientReason;
+                case "patient-inability":
+                    return ResearchConsentReasonMissing.PatientInability;
+                case "patient-refusal":
+                    return ResearchConsentReasonMissing.PatientRefusal;
+                case "technical-issues":
+                    return ResearchConsentReasonMissing.TechnicalIssues;
+            }
+            throw new Exception("Cannot unmarshal type ResearchConsentReasonMissing");
+        }
+
+        public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
+        {
+            if (untypedValue == null)
+            {
+                serializer.Serialize(writer, null);
+                return;
+            }
+            var value = (ResearchConsentReasonMissing)untypedValue;
+            switch (value)
+            {
+                case ResearchConsentReasonMissing.ConsentNotReturned:
+                    serializer.Serialize(writer, "consent-not-returned");
+                    return;
+                case ResearchConsentReasonMissing.OrganizationalIssues:
+                    serializer.Serialize(writer, "organizational-issues");
+                    return;
+                case ResearchConsentReasonMissing.OtherPatientReason:
+                    serializer.Serialize(writer, "other-patient-reason");
+                    return;
+                case ResearchConsentReasonMissing.PatientInability:
+                    serializer.Serialize(writer, "patient-inability");
+                    return;
+                case ResearchConsentReasonMissing.PatientRefusal:
+                    serializer.Serialize(writer, "patient-refusal");
+                    return;
+                case ResearchConsentReasonMissing.TechnicalIssues:
+                    serializer.Serialize(writer, "technical-issues");
+                    return;
+            }
+            throw new Exception("Cannot marshal type ResearchConsentReasonMissing");
+        }
+
+        public static readonly ResearchConsentReasonMissingConverter Singleton = new ResearchConsentReasonMissingConverter();
     }
 
     internal class MvhSubmissionTypeConverter : JsonConverter
