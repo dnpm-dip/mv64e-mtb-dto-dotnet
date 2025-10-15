@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace MV64e.MTB.Test;
 
@@ -32,9 +33,9 @@ public class MtbTest
         using var reader = new StreamReader(stream);
         
         var json = reader.ReadToEnd();
+        var match = Regex.Match(json, @"""birthDate"":""\d{4}-\d{2}-\d{2}""");
         var mtb = Mtb.FromJson(json);
-
         var actual = Serialize.ToJson(mtb);
-        Assert.That(actual, Does.Contain("\"birthDate\":\"1985-05-19\""));
+        Assert.That(actual, Does.Contain(match.Value));
     }
 }
