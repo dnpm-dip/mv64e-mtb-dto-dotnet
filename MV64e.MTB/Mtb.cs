@@ -2713,7 +2713,11 @@ namespace MV64e.MTB
                 TumorSpecimenCollectionLocalizationCodingCodeConverter.Singleton,
                 TumorSpecimenCollectionMethodCodingCodeConverter.Singleton,
                 TumorSpecimenCodingCodeConverter.Singleton,
-                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
+                new IsoDateTimeConverter
+                {
+                    DateTimeStyles = DateTimeStyles.AssumeUniversal,
+                    DateTimeFormat = "yyyy-MM-dd"
+                }
             },
         };
     }
