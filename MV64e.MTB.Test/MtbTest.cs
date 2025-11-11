@@ -33,9 +33,56 @@ public class MtbTest
         using var reader = new StreamReader(stream);
         
         var json = reader.ReadToEnd();
-        var match = Regex.Match(json, @"""birthDate"":""\d{4}-\d{2}-\d{2}""");
+        var match = Regex.Match(json, @"""birthDate"":""\d{4}-\d{2}(-\d{2})?""");
+        Assert.True(match.Success);
         var mtb = Mtb.FromJson(json);
         var actual = Serialize.ToJson(mtb);
         Assert.That(actual, Does.Contain(match.Value));
+    }
+    
+    [Test]
+    public void ShouldKeepPatientBirthdateFormatInYearMonth()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        const string resourceName = @"MV64e.MTB.Test.TestData.mv64e-mtb-fake-patient.json";
+
+        using var stream = assembly.GetManifestResourceStream(resourceName);
+        Debug.Assert(stream != null, "Cannot find test data file");
+        using var reader = new StreamReader(stream);
+        
+        var json = reader.ReadToEnd();
+        
+        // Fake birthdate in old format
+        var regex = new Regex(@"""birthDate"":""\d{4}-\d{2}(-\d{2})?""");
+        json = regex.Replace(json, @"""birthDate"":""2025-03""");
+        Assert.That(json, Does.Contain(@"""birthDate"":""2025-03"""));
+
+        var mtb = Mtb.FromJson(json);
+        var actual = Serialize.ToJson(mtb);
+        // Expect new format
+        Assert.That(actual, Does.Contain(@"""birthDate"":""2025-03"""));
+    }
+    
+    [Test]
+    public void ShouldConvertPatientBirthdateFormatToYearMonth()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        const string resourceName = @"MV64e.MTB.Test.TestData.mv64e-mtb-fake-patient.json";
+
+        using var stream = assembly.GetManifestResourceStream(resourceName);
+        Debug.Assert(stream != null, "Cannot find test data file");
+        using var reader = new StreamReader(stream);
+        
+        var json = reader.ReadToEnd();
+        
+        // Fake birthdate in old format
+        var regex = new Regex(@"""birthDate"":""\d{4}-\d{2}(-\d{2})?""");
+        json = regex.Replace(json, @"""birthDate"":""2025-03-19""");
+        Assert.That(json, Does.Contain(@"""birthDate"":""2025-03-19"""));
+
+        var mtb = Mtb.FromJson(json);
+        var actual = Serialize.ToJson(mtb);
+        // Expect new format
+        Assert.That(actual, Does.Contain(@"""birthDate"":""2025-03"""));
     }
 }
