@@ -1,3 +1,7 @@
+using System.ComponentModel;
+using System.Data;
+using System.Text.RegularExpressions;
+
 #pragma warning disable CS8765
 #pragma warning disable CS8618
 
@@ -1849,9 +1853,11 @@ namespace MV64e.MTB
         public Age Age { get; set; }
 
         [JsonProperty("birthDate", Required = Required.Always)]
+        [JsonConverter(typeof(YearMonthConverterWithFallback))]
         public DateTimeOffset BirthDate { get; set; }
 
         [JsonProperty("dateOfDeath", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(YearMonthConverterWithFallback))]
         public DateTimeOffset? DateOfDeath { get; set; }
 
         [JsonProperty("gender", Required = Required.Always)]
@@ -1868,6 +1874,17 @@ namespace MV64e.MTB
 
         [JsonProperty("vitalStatus", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
         public VitalStatusCoding VitalStatus { get; set; }
+    }
+
+    public class YearMonthConverterWithFallback : IsoDateTimeConverter
+    {
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
+        {
+            new IsoDateTimeConverter
+            {
+                DateTimeFormat = "yyyy'-'MM"
+            }.WriteJson(writer, value, serializer);
+        }
     }
 
     public partial class Address
