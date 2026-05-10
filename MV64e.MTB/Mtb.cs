@@ -2533,8 +2533,8 @@ namespace MV64e.MTB
 
     public enum RnaFusionStrand
     {
-        Empty,
-        RnaFusionStrand
+        Plus,
+        Minus
     };
 
     public enum TranscriptIdSystem
@@ -5272,9 +5272,9 @@ namespace MV64e.MTB
             switch (value)
             {
                 case "+":
-                    return RnaFusionStrand.Empty;
+                    return RnaFusionStrand.Plus;
                 case "-":
-                    return RnaFusionStrand.RnaFusionStrand;
+                    return RnaFusionStrand.Minus;
             }
 
             throw new Exception("Cannot unmarshal type RnaFusionStrand");
@@ -5291,10 +5291,10 @@ namespace MV64e.MTB
             var value = (RnaFusionStrand)untypedValue;
             switch (value)
             {
-                case RnaFusionStrand.Empty:
+                case RnaFusionStrand.Plus:
                     serializer.Serialize(writer, "+");
                     return;
-                case RnaFusionStrand.RnaFusionStrand:
+                case RnaFusionStrand.Minus:
                     serializer.Serialize(writer, "-");
                     return;
             }
